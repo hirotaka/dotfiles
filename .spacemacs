@@ -169,10 +169,9 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("MeiryoKe_Console"
-                               :size 12
-                               :weight normal
-                               :width normal
+   dotspacemacs-default-font '("Ricty Diminished"
+                               :size 14
+                               :weight light
                                :powerline-scale 1.1)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
@@ -581,8 +580,9 @@ you should place your code here."
   ;; org-journal
   (setq org-journal-file-format "%Y/%m/%d.org")
   (setq org-journal-dir "~/Dropbox/Org/journal")
-  (setq org-journal-date-prefix "#+TITLE: ")
-  (setq org-journal-date-format "%Y/%m/%d")
+  (setq org-journal-date-prefix "#+STARTUP: showall\n#+TITLE: ")
+  (setq org-journal-date-format "%Y/%m/%d\n* Timeline")
+  (setq org-journal-time-format "%R\n")
 
   ;; アジェンダ表示の対象ファイル
   (setq org-agenda-files '(
@@ -602,7 +602,7 @@ you should place your code here."
     :hook
     (org-mode . org-fancy-priorities-mode)
     :config
-    (setq org-fancy-priorities-list '((?A . "❗")
+    (setq org-fancy-priorities-list '((?A . "⚠︎")
                                       (?B . "①")
                                       (?C . "②")
                                       (?D . "③")
@@ -712,11 +712,11 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "MeiryoKe_Console" :foundry "nil" :slant normal :weight normal :height 120 :width normal))))
  '(markdown-code-face ((t (:background "#303236"))))
- '(org-agenda-date-today ((t (:inherit bold :foreground "#4f97d7" :weight bold :height 1.1))))
+ '(org-agenda-date-today ((t (:inherit bold :foreground "#4f97d7" :weight bold :height 1.0))))
  '(org-agenda-done ((t (:foreground "#86dc2f" :height 1.0))))
- '(org-document-title ((t (:inherit bold :foreground "#bc6ec5" :underline t :height 1))))
+ '(org-document-title ((t (:inherit bold :foreground "#bc6ec5" :underline t :height 1.0))))
  '(org-level-1 ((t (:foreground "#4f97d7" :height 1.0))))
- '(org-level-2 ((t (:inherit bold :foreground "#2d9574" :height 1))))
- '(org-level-3 ((t (:foreground "#67b11d" :weight normal :height 1))))
+ '(org-level-2 ((t (:inherit bold :foreground "#2d9574" :weight bold :height 1.0))))
+ '(org-level-3 ((t (:foreground "#67b11d" :weight normal :height 1.0))))
  '(org-scheduled-today ((t (:foreground "#bc6ec5" :height 1.0)))))
 )
