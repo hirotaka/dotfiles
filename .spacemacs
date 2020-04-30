@@ -172,6 +172,7 @@ values."
    dotspacemacs-default-font '("Ricty Diminished"
                                :size 14
                                :weight light
+                               :width normal
                                :powerline-scale 1.1)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
@@ -461,7 +462,7 @@ you should place your code here."
   ;(add-hook 'web-mode-hook  'my-web-mode-hook)
 
   ;; helm-ag
-  (global-set-key (kbd "C-c s") 'helm-ag)
+  (global-set-key (kbd "C-c s") 'helm-ag-project-root)
   (global-set-key (kbd "C-c b") 'backward-kill-sexp) ;推奨
 
   ;; query-replace-regexp
@@ -592,8 +593,8 @@ you should place your code here."
   ;;; org-mode
   ; priority
   (setq org-highest-priority ?A)
-  (setq org-lowest-priority ?I)
-  (setq org-default-priority ?I)
+  (setq org-lowest-priority ?H)
+  (setq org-default-priority ?H)
   (setq org-agenda-fontify-priorities 'nil)
 
   ;; org-fancy-priorities
@@ -628,8 +629,17 @@ you should place your code here."
   (require 'server)
   (unless (server-running-p)
     (server-start))
+  ;;; multi-term buffer name
+  (defadvice term-send-raw (around rename-term-name activate)
+    (progn
+      (rename-buffer
+       (concat (shell-command-to-string "pwd | xargs basename |  tr -d '\n'")
+               " - terminal "
+               (format-time-string "[%M:%S]")))
+      ad-do-it))
 
   ;;; react layer
+  (setq js2-strict-missing-semi-warning nil)
   (setq-default
    ;; js2-mode
    js2-basic-offset 2
