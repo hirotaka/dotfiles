@@ -70,6 +70,10 @@ values."
      ruby-on-rails
      react
      helm
+     vue
+     neotree
+     tern
+     typescript
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -79,13 +83,12 @@ values."
      sequential-command
      visual-regexp
      visual-regexp-steroids
-     vue-mode
      eshell-z
      editorconfig
      prettier-js
      org2blog
      org-gcal
-     org-fancy-priorities
+     ;org-fancy-priorities
      exec-path-from-shell
      po-mode
      )
@@ -127,7 +130,7 @@ values."
    ;; when the current branch is not `develop'. Note that checking for
    ;; new versions works via git commands, thus it calls GitHub services
    ;; whenever you start Emacs. (default nil)
-   dotspacemacs-check-for-update nil
+   dotspacemacs-check-for-update t
    ;; If non-nil, a form that evaluates to a package directory. For example, to
    ;; use different package directories for different Emacs versions, set this
    ;; to `emacs-version'.
@@ -462,7 +465,7 @@ you should place your code here."
   ;(add-hook 'web-mode-hook  'my-web-mode-hook)
 
   ;; helm-ag
-  (global-set-key (kbd "C-c s") 'helm-ag-project-root)
+  (global-set-key (kbd "C-c s") 'helm-do-ag)
   (global-set-key (kbd "C-c b") 'backward-kill-sexp) ;推奨
 
   ;; query-replace-regexp
@@ -598,19 +601,19 @@ you should place your code here."
   (setq org-agenda-fontify-priorities 'nil)
 
   ;; org-fancy-priorities
-  (use-package org-fancy-priorities
-    :ensure t
-    :hook
-    (org-mode . org-fancy-priorities-mode)
-    :config
-    (setq org-fancy-priorities-list '((?A . "⚠︎")
-                                      (?B . "①")
-                                      (?C . "②")
-                                      (?D . "③")
-                                      (?E . "④")
-                                      (?F . "⑤")
-                                      (?G . "⑥")
-                                      (?H . "➡"))))
+  ;(use-package org-fancy-priorities
+  ;  :ensure t
+  ;  :hook
+  ;  (org-mode . org-fancy-priorities-mode)
+  ;  :config
+  ;  (setq org-fancy-priorities-list '((?A . "⚠︎")
+  ;                                    (?B . "①")
+  ;                                    (?C . "②")
+  ;                                    (?D . "③")
+  ;                                    (?E . "④")
+  ;                                    (?F . "⑤")
+  ;                                    (?G . "⑥")
+  ;                                    (?H . "➡"))))
 
   ;;; PATHを引き継ぐ
   (exec-path-from-shell-initialize)
@@ -722,7 +725,10 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "MeiryoKe_Console" :foundry "nil" :slant normal :weight normal :height 120 :width normal))))
  '(markdown-code-face ((t (:background "#303236"))))
- '(org-agenda-date-today ((t (:inherit bold :foreground "#4f97d7" :weight bold :height 1.0))))
+ '(markdown-header-face ((t (:inherit font-lock-function-name-face :weight normal))))
+ '(markdown-header-face-1 ((t (:inherit bold :foreground "#4f97d7" :height 1.0))))
+ '(markdown-header-face-2 ((t (:inherit bold :foreground "#2d9574" :height 1.0))))
+ '(org-agenda-date-today ((t (:inherit bold :foreground "#4f97d7" :weight bold :height 1.1))))
  '(org-agenda-done ((t (:foreground "#86dc2f" :height 1.0))))
  '(org-document-title ((t (:inherit bold :foreground "#bc6ec5" :underline t :height 1.0))))
  '(org-level-1 ((t (:foreground "#4f97d7" :height 1.0))))

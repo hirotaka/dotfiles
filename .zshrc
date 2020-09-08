@@ -203,3 +203,23 @@ eval "$(nodenv init -)"
 # gettext
 export PATH="/usr/local/opt/gettext/bin:$PATH"
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/hirotaka/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/hirotaka/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/hirotaka/opt/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/hirotaka/opt/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+conda deactivate
+
+# tabtab source for packages
+# uninstall by removing these lines
+[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
