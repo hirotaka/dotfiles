@@ -126,7 +126,7 @@ alias v=vim
 # ------------------------------
 
 ### rbenv ###
-eval "$(rbenv init -)"
+#eval "$(rbenv init -)"
 
 ### RVM ###
 #if [[ -s ~/.rvm/scripts/rvm ]] ; then source ~/.rvm/scripts/rvm ; fi
@@ -135,10 +135,10 @@ eval "$(rbenv init -)"
 
 ### NODE_PATH
 #export NODE_PATH=/usr/local/share/npm/lib/node_modules
-export NPM_CONFIG=$HOME
+#export NPM_CONFIG=$HOME
 
 ###  NVM ###
-if [[ -s ~/.nvm/nvm.sh ]] ; then source ~/.nvm/nvm.sh ; fi
+#if [[ -s ~/.nvm/nvm.sh ]] ; then source ~/.nvm/nvm.sh ; fi
 
 ### npm
 #PATH=$PATH:/usr/local/share/npm/bin
@@ -175,7 +175,7 @@ case "${OSTYPE}" in
 esac
 
 # boxen
-[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
+# [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
 
 ### EC2 ###
 #export AWS_ACCESS_KEY_ID="AKIAJPKF3JK4TFL64ODQ"
@@ -189,37 +189,41 @@ esac
 #export DOCKER_TLS_VERIFY=1
 
 # android
-export ANDROID_HOME="$HOME/Applications/android-sdk-macosx"
-export NDK_HOME="$HOME/Applications/android-ndk-r10e"
-export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$NDK_HOME
+# export ANDROID_HOME="$HOME/Applications/android-sdk-macosx"
+# export NDK_HOME="$HOME/Applications/android-ndk-r10e"
+# export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$NDK_HOME
 
 # bazel
-export PATH="$PATH:$HOME/bin"
+# export PATH="$PATH:$HOME/bin"
 
 # nodenv
-export PATH="$HOME/.nodenv/bin:$PATH"
-eval "$(nodenv init -)"
+# export PATH="$HOME/.nodenv/bin:$PATH"
+# eval "$(nodenv init -)"
 
 # gettext
-export PATH="/usr/local/opt/gettext/bin:$PATH"
-export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+# export PATH="/usr/local/opt/gettext/bin:$PATH"
+# export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/hirotaka/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/hirotaka/opt/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/hirotaka/opt/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/hirotaka/opt/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
+# __conda_setup="$('/Users/hirotaka/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/Users/hirotaka/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+#         . "/Users/hirotaka/opt/anaconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/Users/hirotaka/opt/anaconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
 # <<< conda initialize <<<
-conda deactivate
+# conda deactivate
 
 # tabtab source for packages
 # uninstall by removing these lines
-[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
+# [[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
+
+# anyenv
+export PATH="$HOME/.anyenv/bin:$PATH"
+eval "$(anyenv init -)"
