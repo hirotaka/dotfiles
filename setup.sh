@@ -58,24 +58,24 @@ echo "Setting up dotfiles..."
 mkdir -p ~/Worspaces/hirotaka
 cd ~/Worspaces/hirotaka
 git clone https://github.com/hirotaka/dotfiles.git
-if [ ! -f ~/Workspace/hirotaka/dotfiles/.gitconfig ]; then
-    ln -s ~/Workspace/hirotaka/dotfiles/.gitconfig ~/.gitconfig
+if [ ! -f ~/.gitconfig ]; then
+    ln -s ~/Workspaces/hirotaka/dotfiles/.gitconfig ~/.gitconfig
 fi
-if [ ! -f ~/Workspace/hirotaka/dotfiles/.spacemacs ]; then
-    ln -s ~/Workspace/hirotaka/dotfiles/.spacemacs ~/.spacemacs
+if [ ! -f ~/.spacemacs ]; then
+    ln -s ~/Workspaces/hirotaka/dotfiles/.spacemacs ~/.spacemacs
 fi
-if [ ! -f ~/Workspace/hirotaka/dotfiles/.tmux.conf ]; then
-    ln -s ~/Workspace/hirotaka/dotfiles/.tmux.conf ~/.tmux.conf
+if [ ! -f ~/.tmux.conf ]; then
+    ln -s ~/Workspaces/hirotaka/dotfiles/.tmux.conf ~/.tmux.conf
 fi
-if [ ! -f ~/Workspace/hirotaka/dotfiles/.config ]; then
-    ln -s ~/Workspace/hirotaka/dotfiles/.config ~/.config
+if [ ! -f ~/.config ]; then
+    ln -s ~/Workspaces/hirotaka/dotfiles/.config ~/.config
 fi
 
 #
 # fish
 #
 echo "Setting up fish..."
-if [[ $SHELL != '/usr/bin/local/fish' && -f /usr/local/bin/fish ]]; then
+if [ $SHELL != '/usr/bin/local/fish' && -f /usr/local/bin/fish ]; then
     echo $(which fish) | sudo tee -a /etc/shells
     chsh -s $(which fish)
     echo "done"
