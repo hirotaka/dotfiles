@@ -25,6 +25,7 @@ brew cask install cloudapp
 brew cask install discord
 brew cask install dropbox
 brew cask install fish
+brew cask install google-chrome
 brew cask install hyperswitch
 brew cast install iterm2
 brew cask install rectangle
