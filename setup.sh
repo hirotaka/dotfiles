@@ -12,6 +12,7 @@ echo "done"
 echo "Installing brew packages..."
 brew install ag
 brew install anyenv
+brew install fish
 brew install git
 brew install tmux
 brew install zsh
@@ -24,10 +25,9 @@ brew cask install alfred
 brew cask install cloudapp
 brew cask install discord
 brew cask install dropbox
-brew cask install fish
 brew cask install google-chrome
 brew cask install hyperswitch
-brew cast install iterm2
+brew cask install iterm2
 brew cask install rectangle
 brew cask install slack
 echo "done"
@@ -54,21 +54,25 @@ echo "done"
 #
 echo "Setting up dotfiles..."
 mkdir -p ~/Worspaces/hirotaka
-cd ~/Worspaces/hirotaka/dotfiles
-git clone git@github.com:hirotaka/dotfiles.git
-ln -s ~/Workspace/hirotaka/dotfiles/.gitconfig ~/.gitconfig
-ln -s ~/Workspace/hirotaka/dotfiles/.spacemacs ~/.spacemacs
-ln -s ~/Workspace/hirotaka/dotfiles/.spacemacs.d ~/.spacemacs.d
-ln -s ~/Workspace/hirotaka/dotfiles/.tmux.conf ~/.tmux.conf
-ln -s ~/Workspace/hirotaka/dotfiles/.config ~/.config
+cd ~/Worspaces/hirotaka
+git clone https://github.com/hirotaka/dotfiles.git
+ln -sf ~/Workspace/hirotaka/dotfiles/.gitconfig ~/.gitconfig
+ln -sf ~/Workspace/hirotaka/dotfiles/.spacemacs ~/.spacemacs
+ln -sf ~/Workspace/hirotaka/dotfiles/.spacemacs.d ~/.spacemacs.d
+ln -sf ~/Workspace/hirotaka/dotfiles/.tmux.conf ~/.tmux.conf
+ln -sf ~/Workspace/hirotaka/dotfiles/.config ~/.config
 
 #
 # fish
 #
 echo "Setting up fish..."
-echo $(which fish) | sudo tee -a /etc/shells
-chsh -s $(which fish)
-echo "done"
+if [[ -f /usr/local/bin/fish ]]; then
+    echo $(which fish) | sudo tee -a /etc/shells
+    chsh -s $(which fish)
+    echo "done"
+else
+    echo "Could not find fish"
+fi
 
 #
 # Atok
