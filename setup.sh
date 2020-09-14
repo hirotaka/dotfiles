@@ -14,6 +14,7 @@ brew install ag
 brew install anyenv
 brew install cmake
 brew install fish
+brew install fzf
 brew install git
 brew install tmux
 brew install zsh
