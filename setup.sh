@@ -12,10 +12,12 @@ echo "done"
 echo "Installing brew packages..."
 brew install ag
 brew install anyenv
+brew install cmake
 brew install fish
 brew install git
 brew install tmux
 brew install zsh
+brew install libvterm
 echo "done"
 
 # cask
@@ -58,7 +60,6 @@ cd ~/Worspaces/hirotaka
 git clone https://github.com/hirotaka/dotfiles.git
 ln -sf ~/Workspace/hirotaka/dotfiles/.gitconfig ~/.gitconfig
 ln -sf ~/Workspace/hirotaka/dotfiles/.spacemacs ~/.spacemacs
-ln -sf ~/Workspace/hirotaka/dotfiles/.spacemacs.d ~/.spacemacs.d
 ln -sf ~/Workspace/hirotaka/dotfiles/.tmux.conf ~/.tmux.conf
 ln -sf ~/Workspace/hirotaka/dotfiles/.config ~/.config
 
