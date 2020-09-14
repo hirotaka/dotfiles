@@ -89,6 +89,7 @@ values."
      prettier-js
      org2blog
      org-gcal
+     restclient
      ;org-fancy-priorities
      exec-path-from-shell
      po-mode
@@ -174,7 +175,7 @@ values."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Ricty Diminished"
-                               :size 14
+                               :size 13
                                :weight light
                                :width normal
                                :powerline-scale 1.1)
@@ -728,6 +729,7 @@ This function is called at the very end of Spacemacs initialization."
  '(markdown-header-face-1 ((t (:inherit bold :foreground "#4f97d7" :height 1.0))))
  '(markdown-header-face-2 ((t (:inherit bold :foreground "#2d9574" :height 1.0))))
  '(org-agenda-date-today ((t (:inherit bold :foreground "#4f97d7" :weight bold :height 1.0))))
+
  '(org-agenda-done ((t (:foreground "#86dc2f" :height 1.0))))
  '(org-document-title ((t (:inherit bold :foreground "#bc6ec5" :underline t :height 1.0))))
  '(org-level-1 ((t (:foreground "#4f97d7" :height 1.0))))

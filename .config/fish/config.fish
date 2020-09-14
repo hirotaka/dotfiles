@@ -4,7 +4,7 @@ set -U FZF_LEGACY_KEYBINDINGS 0
 # oh-my-fish/theme-bobthefish
 set -g theme_display_date no
 set -g theme_display_cmd_duration no
-set -g theme_color_scheme zenburn
+set -g theme_color_scheme terminal2-dark-white
 
 # anyenv
 set -x PATH ~/.anyenv/bin $PATH
