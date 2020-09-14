@@ -38,9 +38,14 @@ brew cask install font-ricty-diminished
 echo "done"
 
 # emacs
-echo "Installing emacst..."
+echo "Installing emacs..."
 brew tap railwaycat/emacsmacport
 brew cask install emacs-mac-spacemacs-icon
+echo "done"
+
+# spacemacs
+echo "Installing spacemacs..."
+git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 echo "done"
 
 #
