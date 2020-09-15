@@ -15,6 +15,7 @@ brew install anyenv
 brew install cmake
 brew install fish
 brew install fzf
+brew install gh
 brew install git
 brew install tmux
 brew install zsh
@@ -29,6 +30,8 @@ brew cask install cloudapp
 brew cask install discord
 brew cask install dropbox
 brew cask install google-chrome
+brew cask install mi
+brew cask install microsoft-office
 brew cask install hyperswitch
 brew cask install iterm2
 brew cask install rectangle
