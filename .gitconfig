@@ -3,7 +3,7 @@
 	email = hirotaka@mizutani.to
 [core]
 	excludesfile = /Users/hirotaka/.gitignore_global
-	#editor = "/usr/local/bin/emacsclient"
+	editor = "/usr/local/bin/vim"
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 

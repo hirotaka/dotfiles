@@ -9,3 +9,5 @@ set -g theme_color_scheme terminal2-dark-white
 # anyenv
 set -x PATH ~/.anyenv/bin $PATH
 anyenv init - fish | source
+
+set -U EDITOR vim

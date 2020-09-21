@@ -29,6 +29,7 @@ brew cask install alfred
 brew cask install cloudapp
 brew cask install discord
 brew cask install dropbox
+brew cask install figma
 brew cask install google-chrome
 brew cask install mi
 brew cask install microsoft-office
@@ -52,7 +53,9 @@ echo "done"
 
 # spacemacs
 echo "Installing spacemacs..."
-git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+if [ ! -f ~/.emacs.d ]; then
+    git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+fi
 echo "done"
 
 #
@@ -79,12 +82,12 @@ fi
 # fish
 #
 echo "Setting up fish..."
-if [ $SHELL != '/usr/bin/local/fish' && -f /usr/local/bin/fish ]; then
+if [ $SHELL != '/usr/bin/local/fish' ] && [ -f /usr/local/bin/fish ]; then
     echo $(which fish) | sudo tee -a /etc/shells
     chsh -s $(which fish)
     echo "done"
 else
-    echo "Could not find fish"
+    echo "Already setted or could not find fish"
 fi
 
 #
