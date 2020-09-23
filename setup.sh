@@ -5,7 +5,11 @@ set -u
 # brew
 #
 echo "Installing brew..."
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+if [ ! -f /usr/local/bin/brew ]; then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+else
+    echo "brew alread installed"
+fi
 echo "done"
 
 # packages
@@ -37,6 +41,7 @@ brew cask install hyperswitch
 brew cask install iterm2
 brew cask install rectangle
 brew cask install slack
+brew cask install spotify
 echo "done"
 
 # font
@@ -53,7 +58,7 @@ echo "done"
 
 # spacemacs
 echo "Installing spacemacs..."
-if [ ! -f ~/.emacs.d ]; then
+if [ ! -d ~/.emacs.d ]; then
     git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 fi
 echo "done"
@@ -62,9 +67,11 @@ echo "done"
 # dotfiles
 #
 echo "Setting up dotfiles..."
-mkdir -p ~/Worspaces/hirotaka
-cd ~/Worspaces/hirotaka
-git clone https://github.com/hirotaka/dotfiles.git
+if [ ! -d ~/Worspaces/hirotaka/dotfiles ]; then
+    mkdir -p ~/Worspaces/hirotaka
+    cd ~/Worspaces/hirotaka
+    git clone https://github.com/hirotaka/dotfiles.git
+fi
 if [ ! -f ~/.gitconfig ]; then
     ln -s ~/Workspaces/hirotaka/dotfiles/.gitconfig ~/.gitconfig
 fi
@@ -82,12 +89,12 @@ fi
 # fish
 #
 echo "Setting up fish..."
-if [ $SHELL != '/usr/bin/local/fish' ] && [ -f /usr/local/bin/fish ]; then
+if [ $SHELL != '/usr/local/bin/fish' ] && [ ! -f /usr/local/bin/fish ]; then
     echo $(which fish) | sudo tee -a /etc/shells
     chsh -s $(which fish)
     echo "done"
 else
-    echo "Already setted or could not find fish"
+    echo "fish is already setted up or could not find fish"
 fi
 
 #
