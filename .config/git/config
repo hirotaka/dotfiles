@@ -2,7 +2,6 @@
 	name = Hirotaka Mizutani
 	email = hirotaka@mizutani.to
 [core]
-	excludesfile = /Users/hirotaka/.config/git/gitignore
 	editor = "/usr/local/bin/vim"
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
