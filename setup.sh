@@ -72,9 +72,6 @@ if [ ! -d ~/Worspaces/hirotaka/dotfiles ]; then
     cd ~/Worspaces/hirotaka
     git clone https://github.com/hirotaka/dotfiles.git
 fi
-if [ ! -f ~/.gitconfig ]; then
-    ln -s ~/Workspaces/hirotaka/dotfiles/.gitconfig ~/.gitconfig
-fi
 if [ ! -f ~/.spacemacs ]; then
     ln -s ~/Workspaces/hirotaka/dotfiles/.spacemacs ~/.spacemacs
 fi
