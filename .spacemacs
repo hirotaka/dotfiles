@@ -93,6 +93,7 @@ values."
      ;org-fancy-priorities
      exec-path-from-shell
      po-mode
+     org-roam
      )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -643,6 +644,29 @@ you should place your code here."
                (format-time-string "[%M:%S]")))
       ad-do-it))
 
+  ;;; org-roam
+  (setq org-roam-directory "~/Dropbox/org/org-roam")
+  (add-hook 'after-init-hook 'org-roam-mode)
+  (global-set-key (kbd "C-c r l") 'org-roam)
+  (global-set-key (kbd "C-c r f") 'org-roam-find-file)
+  (global-set-key (kbd "C-c r g") 'org-roam-graph-show)
+  (global-set-key (kbd "C-c r i") 'org-roam-insert)
+  (global-set-key (kbd "C-c r c") 'org-roam-capture)
+
+  ;;; web-mode
+  (setq web-mode-content-types-alist
+        '(("jsx" . "\\.js[x]?\\'")))
+
+  ;;; alfred
+  (defun make-orgroamcapture-frame ()
+    "Create a new frame and run org-roam-capture."
+    (interactive)
+    (make-frame '((name . "remember") (width . 160) (height . 32)
+                  (top . 400) (left . 300)
+                  ))
+    (select-frame-by-name "remember")
+    (org-roam-capture))
+
   ;;; react layer
   (setq js2-strict-missing-semi-warning nil)
   (setq-default
@@ -658,7 +682,6 @@ you should place your code here."
     (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
     (add-to-list 'web-mode-indentation-params '("lineup-concats" . nil))
     (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil))))
-
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
 (custom-set-variables
