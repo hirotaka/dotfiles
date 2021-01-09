@@ -42,7 +42,9 @@ values."
             multi-term-program "/usr/local/bin/fish")
      csv
      (org :variables
-          org-enable-org-journal-support t)
+          org-enable-org-journal-support t
+          org-enable-verb-support t
+          org-enable-roam-support t)
      markdown
      yaml
      javascript
@@ -93,7 +95,6 @@ values."
      ;org-fancy-priorities
      exec-path-from-shell
      po-mode
-     org-roam
      )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -646,12 +647,12 @@ you should place your code here."
 
   ;;; org-roam
   (setq org-roam-directory "~/Dropbox/org/org-roam")
-  (add-hook 'after-init-hook 'org-roam-mode)
-  (global-set-key (kbd "C-c r l") 'org-roam)
-  (global-set-key (kbd "C-c r f") 'org-roam-find-file)
-  (global-set-key (kbd "C-c r g") 'org-roam-graph-show)
-  (global-set-key (kbd "C-c r i") 'org-roam-insert)
-  (global-set-key (kbd "C-c r c") 'org-roam-capture)
+  ;(add-hook 'after-init-hook 'org-roam-mode)
+  ;(global-set-key (kbd "C-c r l") 'org-roam)
+  ;(global-set-key (kbd "C-c r f") 'org-roam-find-file)
+  ;(global-set-key (kbd "C-c r g") 'org-roam-graph-show)
+  ;(global-set-key (kbd "C-c r i") 'org-roam-insert)
+  ;(global-set-key (kbd "C-c r c") 'org-roam-capture)
 
   ;;; web-mode
   (setq web-mode-content-types-alist
