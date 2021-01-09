@@ -360,7 +360,7 @@ you should place your code here."
   (add-to-list 'load-path (expand-file-name "~/.spacemacs.d/lisp"))
 
   ;; mac-auto-ascii-mode
-  (mac-auto-ascii-mode 1)
+  ;(mac-auto-ascii-mode 1)
 
   ;; Native Eshell
   (defun eshell-new()
@@ -570,8 +570,8 @@ you should place your code here."
   (global-set-key [(hyper z)] 'undo)
 
   ;; mac switch meta key
-  (setq mac-option-modifier 'meta)
-  (setq mac-command-modifier 'hyper)
+  ;(setq mac-option-modifier 'meta)
+  ;(setq mac-command-modifier 'hyper)
 
   ;; line
   ;(setq line-spacing 0.2)
