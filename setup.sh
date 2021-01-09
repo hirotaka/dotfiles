@@ -28,32 +28,32 @@ echo "done"
 
 # cask
 echo "Installing brew cask packages..."
-brew cask install 1password
-brew cask install alfred
-brew cask install cloudapp
-brew cask install discord
-brew cask install dropbox
-brew cask install figma
-brew cask install google-chrome
-brew cask install mi
-brew cask install microsoft-office
-brew cask install hyperswitch
-brew cask install iterm2
-brew cask install rectangle
-brew cask install slack
-brew cask install spotify
+brew install --cask 1password
+brew install --cask alfred
+brew install --cask cloudapp
+brew install --cask discord
+brew install --cask dropbox
+brew install --cask figma
+brew install --cask google-chrome
+brew install --cask mi
+brew install --cask microsoft-office
+brew install --cask hyperswitch
+brew install --cask iterm2
+brew install --cask rectangle
+brew install --cask slack
+brew install --cask spotify
 echo "done"
 
 # font
 echo "Installing font..."
 brew tap homebrew/cask-fonts
-brew cask install font-ricty-diminished
+brew install --cask font-ricty-diminished
 echo "done"
 
 # emacs
 echo "Installing emacs..."
 brew tap railwaycat/emacsmacport
-brew cask install emacs-mac-spacemacs-icon
+brew install --cask emacs-mac-spacemacs-icon
 echo "done"
 
 # spacemacs
