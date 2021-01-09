@@ -47,13 +47,13 @@ echo "done"
 # font
 echo "Installing font..."
 brew tap homebrew/cask-fonts
-brew cask install font-ricty-diminished
+brew install --cask font-ricty-diminished
 echo "done"
 
 # emacs
 echo "Installing emacs..."
 brew tap railwaycat/emacsmacport
-brew cask install emacs-mac-spacemacs-icon
+brew install --cask emacs-mac-spacemacs-icon
 echo "done"
 
 # spacemacs
