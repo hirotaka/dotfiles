@@ -77,6 +77,9 @@ values."
      neotree
      tern
      typescript
+     (unicode-fonts :variables unicode-fonts-force-multi-color-on-mac t)
+     emoji
+     osx
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -95,6 +98,7 @@ values."
      ;org-fancy-priorities
      exec-path-from-shell
      po-mode
+     vterm-toggle
      )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -594,8 +598,8 @@ you should place your code here."
 
   ;; アジェンダ表示の対象ファイル
   (setq org-agenda-files '(
-                           "~/Dropbox/Org/agenda/inbox.org"
-                           "~/Dropbox/Org/agenda/todo.org"))
+                           "~/Dropbox/org/org-roam/agenda/inbox.org"
+                           "~/Dropbox/org/org-roam/agenda/todo.org"))
 
   ;;; org-mode
   ; priority
@@ -610,7 +614,7 @@ you should place your code here."
   ;  :hook
   ;  (org-mode . org-fancy-priorities-mode)
   ;  :config
-  ;  (setq org-fancy-priorities-list '((?A . "⚠︎")
+  ;  (setq org-fancy-priorities-list '((?A . "⚠")
   ;                                    (?B . "①")
   ;                                    (?C . "②")
   ;                                    (?D . "③")
@@ -636,6 +640,7 @@ you should place your code here."
   (require 'server)
   (unless (server-running-p)
     (server-start))
+
   ;;; multi-term buffer name
   (defadvice term-send-raw (around rename-term-name activate)
     (progn
@@ -645,6 +650,36 @@ you should place your code here."
                (format-time-string "[%M:%S]")))
       ad-do-it))
 
+  ;;; vterm
+  (defun projectile-multi-vterm-in-root ()
+    "Invoke multi `vterm' in the project's root.
+Switch to the project specific term buffer if it already exists."
+    (interactive)
+    (let* ((project (projectile-ensure-project (projectile-project-root)))
+           (buffer-prefix (read-from-minibuffer "Buffer prefix: " "vterm"))
+           (buffer-name (concat buffer-prefix " - " (projectile-project-name project)))
+           (buffer (format "*%s*" buffer-name)))
+      (unless (buffer-live-p (get-buffer buffer))
+        (unless (require 'vterm nil 'noerror)
+          (error "Package 'vterm' is not available"))
+        (vterm buffer)
+        (vterm-send-string (concat "cd " project))
+        (vterm-send-return))
+      (switch-to-buffer buffer)))
+  (global-set-key (kbd "M-m p $ v") 'projectile-multi-vterm-in-root)
+  ;; (defun projectile-run-vterm ()
+  ;;   (interactive)
+  ;;   (setq buffer-name (read-from-minibuffer "Buffer name: " "vterm"))
+  ;;   (let* ((project (projectile-ensure-project (projectile-project-root)))
+  ;;          (buffer buffer-name))
+  ;;     (require 'vterm)
+  ;;     (if (buffer-live-p (get-buffer buffer))
+  ;;         (switch-to-buffer buffer)
+  ;;       (vterm))
+  ;;     (rename-buffer buffer-name)
+  ;;     (vterm-send-string (concat "cd " project))
+  ;;     (vterm-send-return)))
+
   ;;; org-roam
   (setq org-roam-directory "~/Dropbox/org/org-roam")
   ;(add-hook 'after-init-hook 'org-roam-mode)
@@ -653,6 +688,9 @@ you should place your code here."
   ;(global-set-key (kbd "C-c r g") 'org-roam-graph-show)
   ;(global-set-key (kbd "C-c r i") 'org-roam-insert)
   ;(global-set-key (kbd "C-c r c") 'org-roam-capture)
+
+  ;; emoji
+  (setq emojify-display-style "unicode")
 
   ;;; web-mode
   (setq web-mode-content-types-alist
@@ -731,8 +769,10 @@ This function is called at the very end of Spacemacs initialization."
  '(blink-cursor-mode nil)
  '(column-number-mode t)
  '(desktop-save-mode nil)
+ '(evil-want-Y-yank-to-eol nil)
  '(js-indent-level 2)
  '(markdown-fontify-code-blocks-natively t)
+ '(org-agenda-files '("~/Dropbox/org/org-roam/agenda/todo.org"))
  '(org-agenda-skip-scheduled-if-done t)
  '(org-columns-default-format "%25ITEM %TODO %3PRIORITY %TAGS")
  '(package-selected-packages
@@ -752,12 +792,11 @@ This function is called at the very end of Spacemacs initialization."
  '(markdown-header-face ((t (:inherit font-lock-function-name-face :weight normal))))
  '(markdown-header-face-1 ((t (:inherit bold :foreground "#4f97d7" :height 1.0))))
  '(markdown-header-face-2 ((t (:inherit bold :foreground "#2d9574" :height 1.0))))
- '(org-agenda-date-today ((t (:inherit bold :foreground "#4f97d7" :weight bold :height 1.0))))
-
+ '(org-agenda-date-today ((t (:inherit bold :foreground "#4f97d7" :weight bold :height 1.1))))
  '(org-agenda-done ((t (:foreground "#86dc2f" :height 1.0))))
- '(org-document-title ((t (:inherit bold :foreground "#bc6ec5" :underline t :height 1.0))))
+ '(org-document-title ((t (:inherit bold :foreground "#bc6ec5" :underline t :height 1))))
  '(org-level-1 ((t (:foreground "#4f97d7" :height 1.0))))
- '(org-level-2 ((t (:inherit bold :foreground "#2d9574" :height 1.0))))
- '(org-level-3 ((t (:foreground "#67b11d" :weight normal :height 1.0))))
+ '(org-level-2 ((t (:inherit bold :foreground "#2d9574" :height 1))))
+ '(org-level-3 ((t (:foreground "#67b11d" :weight normal :height 1))))
  '(org-scheduled-today ((t (:foreground "#bc6ec5" :height 1.0)))))
 )
