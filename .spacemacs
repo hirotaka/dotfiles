@@ -77,9 +77,10 @@ values."
      neotree
      tern
      typescript
-     (unicode-fonts :variables unicode-fonts-force-multi-color-on-mac t)
+     ;;(unicode-fonts :variables unicode-fonts-force-multi-color-on-mac t)
      emoji
      osx
+     japanese
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -339,7 +340,7 @@ values."
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
    dotspacemacs-whitespace-cleanup nil
-   dotspacemacs-mode-line-theme 'vanilla
+   dotspacemacs-mode-line-theme 'spacemacs
    ))
 
 (defun dotspacemacs/user-init ()
@@ -365,7 +366,7 @@ you should place your code here."
   (add-to-list 'load-path (expand-file-name "~/.spacemacs.d/lisp"))
 
   ;; mac-auto-ascii-mode
-  ;(mac-auto-ascii-mode 1)
+  (mac-auto-ascii-mode 1)
 
   ;; Native Eshell
   (defun eshell-new()
@@ -417,15 +418,15 @@ you should place your code here."
   (global-set-key (kbd "C-c k") 'windmove-down)
 
   ;;; wgrep
-  ; eでwgrepモードにする
+  ; e で wgrep モードにする
   (setf wgrep-enable-key "e")
-  ; wgrep終了時にバッファを保存
+  ; wgrep 終了時にバッファを保存
   (setq wgrep-auto-save-buffer t)
-  ; read-only bufferにも変更を適用する
+  ; read-only buffer にも変更を適用する
   (setq wgrep-change-readonly-file t)
 
   ;;; org-mode
-  ;; 拡張子がorgのファイルを開いた時，自動的にorg-modeにする
+  ;; 拡張子が org のファイルを開いた時，自動的に org-mode にする
   ;(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 
   ;;; company-mode
@@ -433,9 +434,9 @@ you should place your code here."
   (global-company-mode)
   ;(require 'company)
   ;(add-to-list 'company-backends '(company-capf company-dabbrev))
-  ; デフォルトは0.5
+  ; デフォルトは 0.5
   ;(setq company-idle-delay 0)
-  ; デフォルトは4
+  ; デフォルトは 4
   ;(setq company-minimum-prefix-length 2)
   ; 候補の一番下でさらに下に行こうとすると一番上に戻る
   ;(setq company-selection-wrap-around t)
@@ -444,8 +445,8 @@ you should place your code here."
   ;;; scss-mode
   (require 'scss-mode)
   (add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
-  ;; インデント幅を2にする
-  ;; コンパイルは compass watchで行うので自動コンパイルをオフ
+  ;; インデント幅を 2 にする
+  ;; コンパイルは compass watch で行うので自動コンパイルをオフ
   (defun scss-custom ()
     "scss-mode-hook"
     (and
@@ -514,7 +515,7 @@ you should place your code here."
               (define-key eshell-mode-map [remap eshell-pcomplete] 'helm-esh-pcomplete)
               (define-key eshell-mode-map (kbd "M-p") 'helm-eshell-history)))
 
-  ;; 初期Frameサイズを指定
+  ;; 初期 Frame サイズを指定
   (setq inhibit-startup-screen t)
   (setq initial-frame-alist
         '((top . 0) (left . 0) (width . 210) (height . 100))
@@ -531,8 +532,8 @@ you should place your code here."
   (add-hook 'after-init-hook 'inf-ruby-switch-setup)
 
   ;;; org-mode
-  ;;; Org-captureの設定
-  ; Org-captureのテンプレート（メニュー）の設定
+  ;;; Org-capture の設定
+  ; Org-capture のテンプレート（メニュー）の設定
   (setq org-capture-templates
         '(("t" "Todo" entry (file+headline "~/Dropbox/Org/agenda/inbox.org" "Todos")
            "* %?\nEntered on %U\n %i\n %a" :prepend t)
@@ -608,6 +609,10 @@ you should place your code here."
   (setq org-default-priority ?H)
   (setq org-agenda-fontify-priorities 'nil)
 
+  (require 'org-checklist)
+  ; open link
+  (define-key org-mode-map (kbd "C-c o") 'org-open-at-point)
+
   ;; org-fancy-priorities
   ;(use-package org-fancy-priorities
   ;  :ensure t
@@ -623,7 +628,7 @@ you should place your code here."
   ;                                    (?G . "⑥")
   ;                                    (?H . "➡"))))
 
-  ;;; PATHを引き継ぐ
+  ;;; PATH を引き継ぐ
   (exec-path-from-shell-initialize)
 
   ;; term-mode
@@ -690,11 +695,15 @@ Switch to the project specific term buffer if it already exists."
   ;(global-set-key (kbd "C-c r c") 'org-roam-capture)
 
   ;; emoji
-  (setq emojify-display-style "unicode")
+  ;(setq emojify-display-style "unicode")
 
   ;;; web-mode
   (setq web-mode-content-types-alist
         '(("jsx" . "\\.js[x]?\\'")))
+
+  ;;; add space between Japanese and English characters
+  ;(add-hook 'text-mode-hook 'pangu-spacing-mode)
+  (global-pangu-spacing-mode 0)
 
   ;;; alfred
   (defun make-orgroamcapture-frame ()
@@ -721,41 +730,7 @@ Switch to the project specific term buffer if it already exists."
     (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
     (add-to-list 'web-mode-indentation-params '("lineup-concats" . nil))
     (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil))))
-;; Do not write anything past this comment. This is where Emacs will
-;; auto-generate custom variable definitions.
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(blink-cursor-mode nil)
- '(column-number-mode t)
- '(desktop-save-mode nil)
- '(js-indent-level 2)
- '(markdown-fontify-code-blocks-natively t)
- '(package-selected-packages
-   (quote
-    (org-fancy-priorities org-journal org-gcal request-deferred deferred nginx-mode org2blog metaweblog xml-rpc lv prettier-js parent-mode flx iedit anzu goto-chg bind-map bind-key popup pkg-info epl org-mime editorconfig php-auto-yasnippets drupal-mode phpunit phpcbf php-extras php-mode xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help enh-ruby-mode vue-mode edit-indirect ssass-mode vue-html-mode visual-regexp-steroids visual-regexp nlinum-relative helm-themes helm-swoop helm-projectile helm-mode-manager helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet ace-jump-helm-line powerline helm helm-core diminish packed counsel swiper ivy highlight smartparens evil undo-tree avy async hydra projectile f dash s unfill org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-download mwim htmlize gnuplot ggtags projectile-rails inflections feature-mode fuzzy company-web web-completion-data company-tern dash-functional tern company-statistics auto-yasnippet ac-ispell auto-complete helm-gtags rjsx-mode ac-dabbrev helm-ag csv-mode ac-inf-ruby company ox-gfm mmm-mode markdown-toc markdown-mode gh-md yaml-mode web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc coffee-mode smeargle orgit magit-gitflow gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit with-editor nlinum sequential-command web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode haml-mode emmet-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake minitest chruby bundler inf-ruby ws-butler winum which-key wgrep volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline smex restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint ivy-hydra info+ indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-make google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump define-word counsel-projectile column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link)))
- '(safe-local-variable-values
-   (quote
-    ((rspec-docker-container . "web")
-     (rspec-docker-cwd . "/eyan/")
-     (rspec-use-docker-when-possible t))))
- '(tool-bar-mode nil))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:family "MeiryoKe_Console" :foundry "nil" :slant normal :weight normal :height 120 :width normal))))
- '(markdown-code-face ((t (:background "#303236"))))
- '(org-agenda-date-today ((t (:inherit bold :foreground "#4f97d7" :weight bold :height 1.1))))
- '(org-agenda-done ((t (:foreground "#86dc2f" :height 1.0))))
- '(org-document-title ((t (:inherit bold :foreground "#bc6ec5" :underline t :height 1))))
- '(org-level-1 ((t (:foreground "#4f97d7" :height 1.0))))
- '(org-level-2 ((t (:inherit bold :foreground "#2d9574" :height 1))))
- '(org-level-3 ((t (:foreground "#67b11d" :weight normal :height 1))))
- '(org-scheduled-today ((t (:foreground "#bc6ec5" :height 1.0)))))
+
 (defun dotspacemacs/emacs-custom-settings ()
   "Emacs custom settings.
 This is an auto-generated function, do not modify its content directly, use
@@ -787,16 +762,15 @@ This function is called at the very end of Spacemacs initialization."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "MeiryoKe_Console" :foundry "nil" :slant normal :weight normal :height 120 :width normal))))
  '(markdown-code-face ((t (:background "#303236"))))
  '(markdown-header-face ((t (:inherit font-lock-function-name-face :weight normal))))
- '(markdown-header-face-1 ((t (:inherit bold :foreground "#4f97d7" :height 1.0))))
- '(markdown-header-face-2 ((t (:inherit bold :foreground "#2d9574" :height 1.0))))
- '(org-agenda-date-today ((t (:inherit bold :foreground "#4f97d7" :weight bold :height 1.1))))
+ '(markdown-header-face-1 ((t (:foreground "#4f97d7" :height 1.0))))
+ '(markdown-header-face-2 ((t (:foreground "#2d9574" :height 1.0))))
+ '(org-agenda-date-today ((t (:foreground "#4f97d7" :weight normal :height 1.0))))
  '(org-agenda-done ((t (:foreground "#86dc2f" :height 1.0))))
- '(org-document-title ((t (:inherit bold :foreground "#bc6ec5" :underline t :height 1))))
- '(org-level-1 ((t (:foreground "#4f97d7" :height 1.0))))
- '(org-level-2 ((t (:inherit bold :foreground "#2d9574" :height 1))))
- '(org-level-3 ((t (:foreground "#67b11d" :weight normal :height 1))))
+ '(org-document-title ((t (:foreground "#bc6ec5" :underline t :height 1.0))))
+ '(org-level-1 ((t (:foreground "#4f97d7" :weight normal :height 1.0))))
+ '(org-level-2 ((t (:foreground "#2d9574" :weight normal :height 1.0))))
+ '(org-level-3 ((t (:foreground "#67b11d" :weight normal :height 1.0))))
  '(org-scheduled-today ((t (:foreground "#bc6ec5" :height 1.0)))))
 )
