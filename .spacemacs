@@ -100,6 +100,7 @@ values."
      exec-path-from-shell
      po-mode
      vterm-toggle
+     org-clock-convenience
      )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -535,9 +536,9 @@ you should place your code here."
   ;;; Org-capture の設定
   ; Org-capture のテンプレート（メニュー）の設定
   (setq org-capture-templates
-        '(("t" "Todo" entry (file+headline "~/Dropbox/Org/agenda/inbox.org" "Todos")
+        '(("t" "Todo" entry (file+headline "~/Dropbox/org/org-roam/agenda/todo.org" "Todos")
            "* %?\nEntered on %U\n %i\n %a" :prepend t)
-          ("n" "Note" entry (file+headline "~/Dropbox/Org/note/index.org" "Notes")
+          ("n" "Note" entry (file+headline "~/Dropbox/org/org-roam/inbox/index.org" "Inbox")
            "* %?\nEntered on %U\n %i\n %a" :prepend t)))
 
   ;;; https://www.reddit.com/r/emacs/comments/749t8a/keep_a_blank_line_after_a_code_block_in_orgmode/
@@ -586,13 +587,13 @@ you should place your code here."
   (setq org-gcal-client-id "271695811110-pjtd5483p2ibsr79k0m7679084qur3dd.apps.googleusercontent.com"
         org-gcal-client-secret "Sx9DIULyvanWdWvai8MQTQmv"
         ;; ID が sample@foo.google.com のカレンダーと ~/calendar.org を同期
-        org-gcal-file-alist '(("mizutani.to_89sjf893tn5pspj7vn55hicbu0@group.calendar.google.com" . "~/Dropbox/Org/agenda/todo.org")))
+        org-gcal-file-alist '(("mizutani.to_89sjf893tn5pspj7vn55hicbu0@group.calendar.google.com" . "~/Dropbox/org/org-roam/agenda/todo.org")))
   ;; token の保存場所を変更
   (setq org-gcal-dir "~/.org-gcal")
 
   ;; org-journal
   (setq org-journal-file-format "%Y/%m/%d.org")
-  (setq org-journal-dir "~/Dropbox/Org/journal")
+  (setq org-journal-dir "~/Dropbox/org/org-roam/journal")
   (setq org-journal-date-prefix "#+STARTUP: showall\n#+TITLE: ")
   (setq org-journal-date-format "%Y/%m/%d\n* Timeline")
   (setq org-journal-time-format "%R\n")
@@ -604,14 +605,45 @@ you should place your code here."
 
   ;;; org-mode
   ; priority
-  (setq org-highest-priority ?A)
-  (setq org-lowest-priority ?H)
-  (setq org-default-priority ?H)
-  (setq org-agenda-fontify-priorities 'nil)
+  ;(setq org-highest-priority ?A)
+  ;(setq org-lowest-priority ?H)
+  ;(setq org-default-priority ?H)
+  ;(setq org-agenda-fontify-priorities 'nil)
 
-  (require 'org-checklist)
-  ; open link
+  (use-package org-checklist)
+  (require 'org-clock-convenience)
+  (defun dfeich/org-agenda-mode-fn ()
+    (define-key org-agenda-mode-map
+      (kbd "<S-up>") #'org-clock-convenience-timestamp-up)
+    (define-key org-agenda-mode-map
+      (kbd "<S-down>") #'org-clock-convenience-timestamp-down)
+    (define-key org-agenda-mode-map
+      (kbd "ö") #'org-clock-convenience-fill-gap)
+    (define-key org-agenda-mode-map
+      (kbd "é") #'org-clock-convenience-fill-gap-both))
+  (add-hook 'org-agenda-mode-hook #'dfeich/org-agenda-mode-fn)
+
+  ;; open link
   (define-key org-mode-map (kbd "C-c o") 'org-open-at-point)
+
+  ; org-agenda
+  (setq org-agenda-time-grid
+        (quote
+         ((weekly today)
+          (459 659 0859 1059 1259 1459 1659 1859 2059 2259)
+          "......" "----------------")))
+  (setq org-agenda-prefix-format
+        '((agenda  . " %i %-12:c%?-12t%-6e% s")
+          (timeline  . "  % s")
+          (todo  . " %i %-30:c")
+          (tags  . " %i %-12:c")
+          (search . " %i %-12:c")))
+
+  ;(defcustom org-agenda-time-grid
+  ;  '((weekly today require-timed)
+  ;    (500 700 900 1100 1300 1500 1700 1900 2100 2300)
+  ;    "......"
+  ;    "----------------"))
 
   ;; org-fancy-priorities
   ;(use-package org-fancy-priorities
@@ -704,6 +736,10 @@ Switch to the project specific term buffer if it already exists."
   ;;; add space between Japanese and English characters
   ;(add-hook 'text-mode-hook 'pangu-spacing-mode)
   (global-pangu-spacing-mode 0)
+  (setq pangu-spacing-real-insert-separtor nil)
+
+  ;;; Avoid deleting error on dired
+  (setq delete-by-moving-to-trash nil)
 
   ;;; alfred
   (defun make-orgroamcapture-frame ()

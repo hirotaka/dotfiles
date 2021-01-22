@@ -21,3 +21,6 @@ protocol = https
 	clean = git-lfs clean -- %f
 [commit]
 	template = /Users/hirotaka/.config/git/commit_template
+[pull]
+	rebase = true
+	ff = only
