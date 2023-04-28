@@ -30,9 +30,9 @@ brew install gh
 brew install ghq
 brew install git
 brew install gpg
+brew install knqyf263/pet/pet
 brew install lazygit
 brew install ncurses
-brew install pet
 brew install rg
 brew install smug
 brew install tmux
