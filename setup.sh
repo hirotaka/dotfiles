@@ -60,3 +60,7 @@ echo "done"
 # cask-fonts
 brew tap homebrew/cask-fonts
 brew install --cask font-sauce-code-pro-nerd-font
+
+# emacs
+brew tap railwaycat/emacsmacport
+brew install emacs-mac --with-native-comp --with-xwidgets --with-spacemacs-icon --with-imagemagick
