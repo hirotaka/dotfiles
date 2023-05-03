@@ -41,7 +41,6 @@ echo "done"
 # cask
 echo "Installing brew cask packages..."
 brew install --cask 1password
-brew install --cask alfred
 brew install --cask alt-tab
 brew install --cask cleanshot
 brew install --cask discord
@@ -52,14 +51,17 @@ brew install --cask google-drive
 brew install --cask iterm2
 brew install --cask karabiner-elements
 brew install --cask microsoft-office
+brew install --cask raycast
 brew install --cask rectangle
 brew install --cask slack
 brew install --cask spotify
+brew install --cask wezterm
 echo "done"
 
 # cask-fonts
 brew tap homebrew/cask-fonts
 brew install --cask font-sauce-code-pro-nerd-font
+brew install font-plemol-jp-nf
 
 # emacs
 brew tap railwaycat/emacsmacport
