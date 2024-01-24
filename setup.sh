@@ -34,9 +34,15 @@ brew install knqyf263/pet/pet
 brew install lazygit
 brew install ncurses
 brew install rg
-brew install smug
-brew install tmux
+brew install starship
+brew install zellij
+brew install highlight
+brew install nvim
 echo "done"
+
+# obsolete
+# brew install smug
+# brew install tmux
 
 # cask
 echo "Installing brew cask packages..."
@@ -48,15 +54,17 @@ brew install --cask docker
 brew install --cask figma
 brew install --cask google-chrome
 brew install --cask google-drive
-brew install --cask iterm2
 brew install --cask karabiner-elements
 brew install --cask microsoft-office
 brew install --cask raycast
-brew install --cask rectangle
 brew install --cask slack
 brew install --cask spotify
 brew install --cask wezterm
 echo "done"
+
+# obsolete
+# brew install --cask iterm2
+# brew install --cask rectangle
 
 # cask-fonts
 brew tap homebrew/cask-fonts
