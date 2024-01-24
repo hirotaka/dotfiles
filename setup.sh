@@ -40,6 +40,7 @@ brew install highlight
 brew install nvim
 brew install koekeishiya/formulae/yabai
 brew install koekeishiya/formulae/skhd
+brew install 1password-cli
 echo "done"
 
 # obsolete
