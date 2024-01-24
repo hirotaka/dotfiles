@@ -38,11 +38,17 @@ brew install starship
 brew install zellij
 brew install highlight
 brew install nvim
+brew install koekeishiya/formulae/yabai
+brew install koekeishiya/formulae/skhd
 echo "done"
 
 # obsolete
 # brew install smug
 # brew install tmux
+
+# start services
+yabai --start-service
+skhd --start-service
 
 # cask
 echo "Installing brew cask packages..."
