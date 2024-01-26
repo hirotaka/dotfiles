@@ -67,6 +67,7 @@ brew install --cask raycast
 brew install --cask slack
 brew install --cask spotify
 brew install --cask wezterm
+brew install --cask stack-stack
 echo "done"
 
 # obsolete
