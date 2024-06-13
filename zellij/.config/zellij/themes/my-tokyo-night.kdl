@@ -1,0 +1,16 @@
+themes {
+    my-tokyo-night {
+        fg "#c8d3f5"
+        // bg "#222436"
+        bg "#254079"
+        black "#1b1d2b"
+        red "#ff757f"
+        green "#c3e88d"
+        yellow "#ffc777"
+        blue "#82aaff"
+        magenta "#c099ff"
+        cyan "#86e1fc"
+        white "#3b4261"
+        orange "#ff966c"
+    }
+}

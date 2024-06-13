@@ -1,0 +1,66 @@
+layout {
+  cwd "~/Workspaces/github.com/GuildWorks/eyan/client"
+  default_tab_template {
+    children
+    pane size=1 borderless=true {
+      plugin location="zellij:tab-bar"
+    }
+    pane size=2 borderless=true {
+      plugin location="zellij:status-bar"
+    }
+  }
+
+  swap_tiled_layout name="stacked" {
+    tab {
+      pane split_direction="vertical" {
+        pane size="70%"
+        pane stacked=true { children; }
+      }
+    }
+  }
+
+  tab name="nvim" focus=true {
+    pane {
+      name "nvim"
+      borderless true
+      command "nvim"
+    }
+  }
+
+  // tab name="commands" {
+  //   pane stacked=true {
+  //     pane {
+  //       name "fish"
+  //     }
+  //     pane {
+  //       name "rails console"
+  //       start_suspended true
+  //       command "docker"
+  //       args "compose" "exec" "web" "bundle" "exec" "rails" "console"
+  //     }
+  //     pane {
+  //       name "rails dbconsole"
+  //       start_suspended true
+  //       command "docker"
+  //       args "compose" "exec" "web" "bundle" "exec" "rails" "dbconsole"
+  //     }
+  //   }
+  // }
+
+  tab name="services" {
+    pane split_direction="vertical" {
+      pane {
+        name "client"
+        start_suspended true
+        command "yarn"
+        args "dev"
+      }
+      pane {
+        name "storybook"
+        start_suspended true
+        command "yarn"
+        args "storybook"
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+[user]
+	name = Hirotaka Mizutani
+	email = 52546+hirotaka@users.noreply.github.com
+
+[core]
+	editor = "/opt/homebrew/bin/nvim"
+	excludesfile = /Users/hirotaka/.config/git/ignore
+
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+
+[color]
+	ui = true
+
+[hub]
+protocol = https
+
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+
+[commit]
+	template = /Users/hirotaka/.config/git/commit_template
+
+[pull]
+	rebase = false
+	#ff = nononly
+
+[init]
+	defaultBranch = main
+
+[github]
+	user = hirotaka
+
+[ghq]
+	root = ~/Workspaces
+
+[url "ssh://git@github.com"]
+	insteadOf = https://github.com

@@ -81,3 +81,19 @@ brew install font-plemol-jp-nf
 # emacs
 brew tap railwaycat/emacsmacport
 brew install emacs-mac --with-native-comp --with-xwidgets --with-spacemacs-icon --with-imagemagick
+
+# stow
+stow doom -t "$HOME"
+stow emacs -t "$HOME"
+stow fish -t "$HOME"
+stow git -t "$HOME"
+stow karabiner -t "$HOME"
+stow nvim -t "$HOME"
+stow op -t "$HOME"
+stow pet -t "$HOME"
+stow raycast -t "$HOME"
+stow skhd -t "$HOME"
+stow starship -t "$HOME"
+stow wezterm -t "$HOME"
+stow yabai -t "$HOME"
+stow zellij -t "$HOME"

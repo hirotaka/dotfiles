@@ -1,0 +1,19 @@
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>emacs</string>
+    <key>ProgramArguments</key>
+    <array>
+      <string>/opt/homebrew/bin/emacs</string>
+      <string>--fg-daemon=work</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>    
+    <key>StandardOutPath</key>
+    <string>/tmp/emacs.stdout.log</string>
+    <key>StandardErrorPath</key>
+    <string>/tmp/emacs.stderr.log</string>
+  </dict>
+</plist>
