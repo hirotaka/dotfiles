@@ -1,100 +1,43 @@
 #!/bin/bash
 set -u
 
-# brew
-echo "Installing brew..."
-if [ ! -f /opt/homebrew/bin/brew ]; then
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-else
-	echo "brew already installed"
+# dotfiles
+echo "Setting up dotfiles..."
+if [ ! -d ~/Workspaces/github.com/hirotaka/dotfiles ]; then
+	mkdir -p ~/Workspaces/github.com/hirotaka
+	cd ~/Workspaces/github.com/hirotaka || exit
+	git clone git@github.com:hirotaka/dotfiles.git
+
+	# stow
+	stow doom -t "$HOME"
+	stow emacs -t "$HOME"
+	stow fish -t "$HOME"
+	stow git -t "$HOME"
+	stow karabiner -t "$HOME"
+	stow nvim -t "$HOME"
+	stow op -t "$HOME"
+	stow pet -t "$HOME"
+	stow raycast -t "$HOME"
+	stow skhd -t "$HOME"
+	stow starship -t "$HOME"
+	stow wezterm -t "$HOME"
+	stow yabai -t "$HOME"
+	stow zellij -t "$HOME"
 fi
 echo "done"
 
-# setup brew
-(
-	echo
-	echo 'eval "$(/opt/homebrew/bin/brew shellenv)"'
-) >>~/.zprofile
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# fish
+echo "Setting up fish..."
+if [ $SHELL != '/usr/local/bin/fish' ] && [ ! -f /usr/local/bin/fish ]; then
+	echo $(which fish) | sudo tee -a /etc/shells
+	chsh -s $(which fish)
+	echo "done"
+else
+	echo "fish is already setted up or could not find fish"
+fi
 
-# packages
-echo "Installing brew packages..."
-brew install ag
-brew install asdf
-brew install cmake
-brew install fd
-brew install fish
-brew install fzf
-brew install gawk
-brew install gh
-brew install ghq
-brew install git
-brew install gpg
-brew install knqyf263/pet/pet
-brew install lazygit
-brew install ncurses
-brew install rg
-brew install starship
-brew install zellij
-brew install highlight
-brew install nvim
-brew install koekeishiya/formulae/yabai
-brew install koekeishiya/formulae/skhd
-brew install 1password-cli
+# asdf
+echo "Setting up asdf..."
+asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
 echo "done"
-
-# obsolete
-# brew install smug
-# brew install tmux
-
-# start services
-yabai --start-service
-skhd --start-service
-
-# cask
-echo "Installing brew cask packages..."
-brew install --cask 1password
-brew install --cask alt-tab
-brew install --cask cleanshot
-brew install --cask discord
-brew install --cask docker
-brew install --cask figma
-brew install --cask google-chrome
-brew install --cask google-drive
-brew install --cask karabiner-elements
-brew install --cask microsoft-office
-brew install --cask raycast
-brew install --cask slack
-brew install --cask spotify
-brew install --cask wezterm
-brew install --cask stack-stack
-echo "done"
-
-# obsolete
-# brew install --cask iterm2
-# brew install --cask rectangle
-
-# cask-fonts
-brew tap homebrew/cask-fonts
-brew install --cask font-sauce-code-pro-nerd-font
-brew install font-plemol-jp-nf
-
-# emacs
-brew tap railwaycat/emacsmacport
-brew install emacs-mac --with-native-comp --with-xwidgets --with-spacemacs-icon --with-imagemagick
-
-# stow
-stow doom -t "$HOME"
-stow emacs -t "$HOME"
-stow fish -t "$HOME"
-stow git -t "$HOME"
-stow karabiner -t "$HOME"
-stow nvim -t "$HOME"
-stow op -t "$HOME"
-stow pet -t "$HOME"
-stow raycast -t "$HOME"
-stow skhd -t "$HOME"
-stow starship -t "$HOME"
-stow wezterm -t "$HOME"
-stow yabai -t "$HOME"
-stow zellij -t "$HOME"
