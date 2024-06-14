@@ -21,6 +21,31 @@ return {
           require("telescope").load_extension("live_grep_args")
         end,
       },
+      {
+        "nvim-telescope/telescope-file-browser.nvim",
+        dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+      },
+    },
+    opts = {
+      extensions = {
+        file_browser = {
+          hidden = { file_browser = true, folder_browser = true },
+          mappings = {
+            ["i"] = {
+              ["<C-d>"] = function()
+                local fb_actions = require("telescope").extensions.file_browser.actions
+                return fb_actions.change_cwd
+              end,
+            },
+            ["n"] = {
+              ["d"] = function()
+                local fb_actions = require("telescope").extensions.file_browser.actions
+                return fb_actions.change_cwd
+              end,
+            },
+          },
+        },
+      },
     },
     keys = {
       -- { "<leader>sg", "<cmd>Telescope dir live_grep_args<cr>", desc = "Grep (Root Dir)" },
@@ -32,6 +57,11 @@ return {
           return LazyVim.telescope("fd", { default_text = vim.fn.expand("<cword>") })()
         end,
         desc = "Find Files (Word)",
+      },
+      {
+        "<leader>fB",
+        "<cmd>Telescope file_browser<cr>",
+        desc = "File browser",
       },
       -- {
       --   "<leader>fw",
