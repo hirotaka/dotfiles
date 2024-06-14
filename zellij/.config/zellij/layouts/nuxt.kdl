@@ -1,5 +1,5 @@
 layout {
-  cwd "~/Workspaces/github.com/GuildWorks/eyan/client"
+  cwd "."
   default_tab_template {
     children
     pane size=1 borderless=true {
