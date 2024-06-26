@@ -129,6 +129,14 @@ return {
     opts = {},
   },
   -- {
+  --   "williamboman/mason.nvim",
+  --   opts = {
+  --     registries = {
+  --       "file:~/Workspaces/github.com/mason-org/mason-registry",
+  --     },
+  --   },
+  -- },
+  -- {
   --   "https://git.sr.ht/~swaits/zellij-nav.nvim",
   --   lazy = true,
   --   event = "VeryLazy",
