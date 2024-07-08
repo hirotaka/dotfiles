@@ -2,7 +2,6 @@ jorgebucaran/fisher
 jethrokuan/z
 0rax/fish-bd
 vitallium/tokyonight-fish
-jethrokuan/fzf
 otms61/fish-pet
 matchai/spacefish
 gazorby/fish-abbreviation-tips
@@ -10,3 +9,4 @@ decors/fish-ghq
 tsub/fish-fzf-git-recent-branch
 lewisacidic/fish-git-abbr
 lewisacidic/fish-docker
+patrickf1/fzf.fish
