@@ -6,3 +6,5 @@ GTAGS
 .log
 .sqls
 .solargraph.yml
+tags
+todo.org

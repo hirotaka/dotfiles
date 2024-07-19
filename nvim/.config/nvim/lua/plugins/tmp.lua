@@ -1,5 +1,36 @@
 return {
   {
+    "nvim-neorg/neorg",
+    lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
+    version = "*", -- Pin Neorg to the latest stable release
+    config = true,
+  },
+  {
+    "rgroli/other.nvim",
+    cmd = { "Other", "OtherClear", "OtherSplit", "OtherVSplit" },
+    opts = {
+      mappings = {
+        "rails",
+      },
+      -- transformers = {
+      --   -- remove `server` from the path
+      --   remove_server = function(inputString)
+      --     return inputString:gsub("server", "")
+      --   end,
+      --   -- add `server` to the path
+      --   -- ex: +page.ts -> +page.server.ts
+      --   -- ex: +page.js -> +page.server.js
+      --   add_server = function(inputString)
+      --     print(inputString)
+      --     return inputString:gsub("%.(ts|js)$", ".server.%1")
+      --   end,
+      -- },
+    },
+    config = function(_, opt)
+      require("other-nvim").setup(opt)
+    end,
+  },
+  {
     "mikavilpas/yazi.nvim",
     event = "VeryLazy",
     keys = {
