@@ -49,3 +49,6 @@
 
 # zellij
 abbr --add zr zellij run --
+
+# lsd
+abbr --add ls lsd -la
