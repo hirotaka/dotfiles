@@ -48,13 +48,13 @@ layout {
   // }
 
   tab name="services" {
-    pane split_direction="vertical" {
-      pane {
-        name "backend"
-        start_suspended true
-        command "docker"
-        args "compose" "--profile" "backend" "up"
-      }
+    pane {
+      name "storybook"
+      start_suspended true
+      // command "npm"
+      // args "run" "storybook"
+      command "yarn"
+      args "storybook"
     }
   }
 }

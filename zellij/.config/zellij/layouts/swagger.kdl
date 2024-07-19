@@ -49,11 +49,19 @@ layout {
 
   tab name="services" {
     pane split_direction="vertical" {
-      pane {
-        name "backend"
-        start_suspended true
-        command "docker"
-        args "compose" "--profile" "backend" "up"
+      pane stacked=true {
+        pane {
+          name "swagger"
+          start_suspended true
+          command "docker"
+          args "compose" "--profile" "swagger" "up"
+        }
+        pane {
+          name "swagger-salsa"
+          start_suspended true
+          command "docker"
+          args "compose" "--profile" "swagger-salsa" "up"
+        }
       }
     }
   }

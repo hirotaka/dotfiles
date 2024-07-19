@@ -48,19 +48,13 @@ layout {
   // }
 
   tab name="services" {
-    pane split_direction="vertical" {
-      pane {
-        name "client"
-        start_suspended true
-        command "npm"
-        args "run" "dev"
-      }
-      pane {
-        name "storybook"
-        start_suspended true
-        command "npm"
-        args "run" "storybook"
-      }
+    pane {
+      name "nuxt"
+      start_suspended true
+      // command "npm"
+      // args "run" "dev"
+      command "yarn"
+      args "dev"
     }
   }
 }
