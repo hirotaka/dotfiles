@@ -36,11 +36,14 @@ else if test -e /usr/local/bin/brew
 end
 
 # asdf
-if test -e /opt/homebrew/opt/asdf/libexec/asdf.fish
-    source /opt/homebrew/opt/asdf/libexec/asdf.fish
-else if test -e /usr/local/opt/asdf/libexec/asdf.fish
-    source /usr/local/opt/asdf/libexec/asdf.fish
-end
+# if test -e /opt/homebrew/opt/asdf/libexec/asdf.fish
+#     source /opt/homebrew/opt/asdf/libexec/asdf.fish
+# else if test -e /usr/local/opt/asdf/libexec/asdf.fish
+#     source /usr/local/opt/asdf/libexec/asdf.fish
+# end
+
+# mise (asdf alternative)
+mise activate fish | source
 
 # rust
 # set -Ux fish_user_paths ~/.cargo/bin $fish_user_paths

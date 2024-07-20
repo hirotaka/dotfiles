@@ -3,7 +3,7 @@
 	email = 52546+hirotaka@users.noreply.github.com
 
 [core]
-	editor = "/usr/bin/vim"
+	editor = "/opt/homebrew/bin/nvim"
 	excludesfile = /Users/hirotaka/.config/git/ignore
 	quotepath = false
 
