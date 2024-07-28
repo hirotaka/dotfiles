@@ -17,6 +17,7 @@
     "lazyvim.plugins.extras.lang.json",
     "lazyvim.plugins.extras.lang.markdown",
     "lazyvim.plugins.extras.lang.python",
+    "lazyvim.plugins.extras.lang.ruby",
     "lazyvim.plugins.extras.lang.rust",
     "lazyvim.plugins.extras.lang.tailwind",
     "lazyvim.plugins.extras.lang.toml",
@@ -29,9 +30,7 @@
     "lazyvim.plugins.extras.ui.mini-animate",
     "lazyvim.plugins.extras.util.dot",
     "lazyvim.plugins.extras.util.mini-hipatterns",
-    "lazyvim.plugins.extras.util.project",
-    "plugins.extras.lang.ror",
-    "plugins.extras.lang.ruby"
+    "lazyvim.plugins.extras.util.project"
   ],
   "news": {
     "NEWS.md": "6520"

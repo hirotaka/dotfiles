@@ -2,7 +2,7 @@ return {
   {
     "zbirenbaum/copilot.lua",
     opts = {
-      copilot_node_command = "/Users/hirotaka/.asdf/installs/nodejs/18.16.0/bin/node",
+      copiloo_node_command = "/Users/hirotaka/.local/share/mise/installs/node/20.15/bin/node",
     },
   },
   -- {
