@@ -1,9 +1,42 @@
+local rails_alternative_targets = {
+  { context = "model", target = "/app/models/%1.rb", transformer = "singularize" },
+  { context = "controller", target = "/app/controllers/**/%1_controller.rb" },
+  { context = "view", target = "/app/views/%1/*.html*" },
+  { context = "view", target = "/app/views/%1/*.html*", transformer = "singularize" },
+  { context = "channel", target = "/app/channels/**/%1_channel.rb" },
+  { context = "mailer", target = "/app/mailers/%1_mailer.rb" },
+  { context = "serializer", target = "/app/serializers/%1_serializer.rb" },
+  { context = "mailer", target = "/app/mailers/%1_mailer.rb" },
+  { context = "service", target = "/app/services/%1_service.rb" },
+  { context = "worker", target = "/app/workers/**/%1_worker.rb" },
+  { context = "factories", target = "/spec/factories/%1.rb", transformer = "pluralize" },
+}
+
 return {
   {
     "zbirenbaum/copilot.lua",
     opts = {
       copiloo_node_command = "/Users/hirotaka/.local/share/mise/installs/node/20.15/bin/node",
     },
+  },
+  {
+    "rgroli/other.nvim",
+    cmd = { "Other", "OtherClear", "OtherSplit", "OtherVSplit" },
+    opts = {
+      mappings = {
+        "rails",
+
+        -- Additional rails mappings
+        {
+          pattern = "/(.*)/%+(.*).svelte$",
+          target = rails_target,
+        },
+      },
+    },
+    config = function(_, opt)
+      require("other-nvim").setup(opt)
+    end,
+    keys = { { "<leader>co", "<cmd>Other<cr>", desc = "Open alternative files" } },
   },
   -- {
   --   "hrsh7th/nvim-cmp",
