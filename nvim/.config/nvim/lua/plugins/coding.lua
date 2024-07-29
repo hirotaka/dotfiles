@@ -29,7 +29,19 @@ return {
         -- Additional rails mappings
         {
           pattern = "/(.*)/%+(.*).svelte$",
-          target = rails_target,
+          target = rails_alternative_targets,
+        },
+        {
+          pattern = "/spec/lib/tasks/(.*)_spec.rb",
+          target = {
+            { context = "task", target = "/lib/tasks/%1.rake" },
+          },
+        },
+        {
+          pattern = "/lib/tasks/(.*).rake",
+          target = {
+            { context = "test", target = "/spec/lib/tasks/%1_spec.rb" },
+          },
         },
       },
     },
