@@ -20,6 +20,15 @@ return {
     },
   },
   {
+    "neovim/nvim-lspconfig",
+    servers = {
+      ruby_lsp = {
+        mason = false,
+        cmd = { " /Users/hirotaka/.local/share/mise/shims/ruby-lsp" },
+      },
+    },
+  },
+  {
     "rgroli/other.nvim",
     cmd = { "Other", "OtherClear", "OtherSplit", "OtherVSplit" },
     opts = {
@@ -48,7 +57,10 @@ return {
     config = function(_, opt)
       require("other-nvim").setup(opt)
     end,
-    keys = { { "<leader>co", "<cmd>Other<cr>", desc = "Open alternative files" } },
+    keys = {
+      { "goo", "<cmd>Other<cr>", desc = "Open other files" },
+      { "gov", "<cmd>OtherVSplit<cr>", desc = "Open other files in a vertical split" },
+    },
   },
   -- {
   --   "hrsh7th/nvim-cmp",
