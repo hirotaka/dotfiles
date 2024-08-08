@@ -1,5 +1,21 @@
 return {
   {
+    "stevearc/oil.nvim",
+    keys = {
+      { "<leader>fo", "<cmd>Oil --float<CR>", desc = "Open oil" },
+    },
+    opts = {
+      view_options = {
+        show_hidden = true,
+      },
+      float = {
+        padding = 5,
+      },
+    },
+    -- Optional dependencies
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
+  {
     "leath-dub/snipe.nvim",
     config = function()
       local snipe = require("snipe")
