@@ -14,6 +14,14 @@ local rails_alternative_targets = {
 
 return {
   {
+    "cuducos/yaml.nvim",
+    ft = { "yaml" }, -- optional
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-telescope/telescope.nvim", -- optional
+    },
+  },
+  {
     "zbirenbaum/copilot.lua",
     opts = {
       copiloo_node_command = "/Users/hirotaka/.local/share/mise/installs/node/20.15/bin/node",
