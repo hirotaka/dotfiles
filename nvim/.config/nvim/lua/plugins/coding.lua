@@ -60,6 +60,12 @@ return {
             { context = "test", target = "/spec/lib/tasks/%1_spec.rb" },
           },
         },
+        {
+          pattern = "/spec/requests/api/(.*)/.*_spec.rb",
+          target = {
+            { context = "controller", target = "/app/controllers/api/%1_controller.rb" },
+          },
+        },
       },
     },
     config = function(_, opt)

@@ -1,5 +1,5 @@
 #!/usr/bin/env fish
 
-abbr z zellij
-abbr zl 'zellij ls'
-abbr za 'zellij attach'
+abbr ze zellij
+abbr zel 'zellij ls'
+abbr zea 'zellij attach'

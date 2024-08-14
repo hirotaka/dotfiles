@@ -24,6 +24,8 @@ return {
       },
       { "<leader>jc", "<cmd>lua require('notebook-navigator').run_cell()<cr>" },
       { "<leader>jm", "<cmd>lua require('notebook-navigator').run_and_move()<cr>" },
+      { "<leader>ja", "<cmd>lua require('notebook-navigator').run_all_cells()<cr>" },
+      { "<leader>jb", "<cmd>lua require('notebook-navigator').run_cells_below()<cr>" },
     },
     dependencies = {
       "echasnovski/mini.comment",
