@@ -61,4 +61,9 @@ config.keys = {
 
 config.enable_kitty_graphics = true
 
+config.hyperlink_rules = wezterm.default_hyperlink_rules()
+table.insert(config.hyperlink_rules, {
+	regex = "\\b\\w+://(?:[\\w.-]+):\\d+\\S*\\b",
+	format = "$0",
+})
 return config

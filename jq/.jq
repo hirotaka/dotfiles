@@ -1,3 +1,4 @@
+# https://github.com/reegnz/dotfiles/tree/master/jq
 def head($count):
   .[0:$count]|select(length > 0) |
   if type == "array" then .[] else . end;

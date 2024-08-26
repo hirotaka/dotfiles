@@ -1,0 +1,9 @@
+{
+  "SecretKey": "aaaaa",
+  "PublicKey": "bbbb",
+  "TestData": [
+    {
+      "InputSource": "file"
+    }
+  ]
+}
