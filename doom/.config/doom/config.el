@@ -245,3 +245,6 @@
         (org-mark-element)
         (delete-region (region-beginning) (region-end))
         (org-remove-empty-drawer-at (point))))))
+
+;; https://discourse.doomemacs.org/t/how-to-have-tool-bar-mode-0-apply-at-startup-to-avoid-large-title-bar-on-macos-sonoma-when-using-railwaycat-homebrew-emacsmacport/4222/4
+(add-hook 'doom-after-init-hook (lambda () (tool-bar-mode 1) (tool-bar-mode 0)))

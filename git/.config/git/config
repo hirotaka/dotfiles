@@ -3,23 +3,23 @@
 	email = 52546+hirotaka@users.noreply.github.com
 
 [core]
-	editor = "/opt/homebrew/bin/nvim"
+  ; editor = "/opt/homebrew/bin/nvim"
 	excludesfile = /Users/hirotaka/.config/git/ignore
 	quotepath = false
 
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+; [difftool "sourcetree"]
+; 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+; 	path = 
 
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+; [mergetool "sourcetree"]
+; 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+; 	trustExitCode = true
 
 [color]
 	ui = true
 
 [hub]
-protocol = https
+  protocol = https
 
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
@@ -27,8 +27,8 @@ protocol = https
 	required = true
 	clean = git-lfs clean -- %f
 
-[commit]
-	template = /Users/hirotaka/.config/git/commit_template
+; [commit]
+;   template = /Users/hirotaka/.config/git/commit_template
 
 [pull]
 	rebase = false
