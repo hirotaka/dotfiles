@@ -13,7 +13,7 @@ layout {
   swap_tiled_layout name="stacked" {
     tab {
       pane split_direction="vertical" {
-        pane size="70%"
+        pane size="50%"
         pane stacked=true { children; }
       }
     }
@@ -22,7 +22,6 @@ layout {
   tab name="nvim" focus=true {
     pane {
       name "nvim"
-      borderless true
       command "nvim"
     }
   }
@@ -56,5 +55,9 @@ layout {
       command "yarn"
       args "dev"
     }
+  }
+
+  tab name="fish" {
+    pane
   }
 }
