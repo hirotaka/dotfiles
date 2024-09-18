@@ -52,3 +52,6 @@ abbr --add zr zellij run --
 
 # lsd
 abbr --add ls lsd -la
+
+# clear
+abbr --add c clear

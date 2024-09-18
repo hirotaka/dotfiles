@@ -4,7 +4,7 @@
 # - escaped_path: absolute local path to your project
 # - container: name of your docker container
 # escaped_path="\/Users\/hirotaka\/Workspaces\/github.com\/GuildWorks\/eyan\/" # Be careful to properly escape this
-escaped_path="\/Users\/hirotaka\/Workspaces\/github.com\/GuildWorks\/eyan-renamed\/" # Be careful to properly escape this
+escaped_path="\/Users\/hirotaka\/Workspaces\/github.com\/GuildWorks\/eyan\/" # Be careful to properly escape this
 container="web"
 
 # WARN: This will break if flags other than -o and -f are added in neotest-rspec
