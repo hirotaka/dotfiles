@@ -57,6 +57,11 @@ config.keys = {
 		mods = "ALT",
 		action = wezterm.action.DisableDefaultAssignment,
 	},
+	{
+		key = "w",
+		mods = "SUPER|SHIFT",
+		action = wezterm.action.CloseCurrentPane({ confirm = false }),
+	},
 }
 
 config.enable_kitty_graphics = true
