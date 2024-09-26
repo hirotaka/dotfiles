@@ -1,3 +1,17 @@
+# zellij
+abbr --add zr zellij run --
+
+# lsd
+abbr --add ls lsd -la
+
+# shell
+abbr --add c clear
+abbr --add e exit
+
+# emacsclient
+abbr --add ec emacsclient --nw
+abbr --add ece emacsclient --nw --eval '"(call-interactively \'org-journal-new-entry)"'
+
 # git
 # # add
 # abbr --add ga git add
@@ -46,12 +60,3 @@
 # abbr --add dcud docker compose up -d
 # abbr --add dcd docker compose down
 # abbr --add dcs docker compose start
-
-# zellij
-abbr --add zr zellij run --
-
-# lsd
-abbr --add ls lsd -la
-
-# clear
-abbr --add c clear

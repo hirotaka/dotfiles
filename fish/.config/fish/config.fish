@@ -123,3 +123,6 @@ set fish_vi_force_cursor 1
 #     end
 # end
 # <<< conda initialize <<<
+
+# zoxide
+zoxide init fish | source

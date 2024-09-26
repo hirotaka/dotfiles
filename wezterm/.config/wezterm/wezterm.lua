@@ -66,4 +66,9 @@ table.insert(config.hyperlink_rules, {
 	regex = "\\b\\w+://(?:[\\w.-]+):\\d+\\S*\\b",
 	format = "$0",
 })
+
+config.set_environment_variables = {
+	COLORTERM = "truecolor",
+}
+
 return config

@@ -40,8 +40,8 @@
       ;; doom-yokohama-night-brighter-comments  t
       ;; doom-yokohama-night-brighter-modeline t
       )
-(set-frame-parameter nil 'alpha-background 70)
-(add-to-list 'default-frame-alist '(alpha-background . 70))
+;; (set-frame-parameter nil 'alpha-background 70)
+;; (add-to-list 'default-frame-alist '(alpha-background . 70))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -84,11 +84,12 @@
 ;; they are implemented.
 
 ;; Serve mode
-;; (server-mode +1)
+(server-mode +1)
 
 ;; transparency
-                                        ; (set-frame-parameter (selected-frame) 'alpha '(75 . 50))
-                                        ; (add-to-list 'default-frame-alist '(alpha . (75 . 50)))
+;; (set-frame-parameter (selected-frame) 'alpha '(85 . 50))
+;; (add-to-list 'default-frame-alist '(alpha . (85 . 50)))
+;;
 ;; (set-frame-parameter nil 'alpha-background 100)
 ;; (add-to-list 'default-frame-alist '(alpha-background . 100))
 ;; (defun kb/toggle-window-transparency ()
@@ -249,3 +250,15 @@
 
 ;; https://discourse.doomemacs.org/t/how-to-have-tool-bar-mode-0-apply-at-startup-to-avoid-large-title-bar-on-macos-sonoma-when-using-railwaycat-homebrew-emacsmacport/4222/4
 (add-hook 'doom-after-init-hook (lambda () (tool-bar-mode 1) (tool-bar-mode 0)))
+
+;; https://discourse.doomemacs.org/t/different-bg-color-between-emacsclient-nw-and-emacs-nw/160
+(custom-set-faces!
+  '(default :background nil))
+
+;; org-tempo
+(use-package! org-tempo
+  :after org
+  :init
+  (add-to-list 'org-structure-template-alist '("sh" . "src shell"))
+  (add-to-list 'org-structure-template-alist '("els" . "src elisp"))
+  (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp")))

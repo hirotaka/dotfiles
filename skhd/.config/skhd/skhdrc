@@ -24,27 +24,13 @@ shift + cmd - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
 shift + cmd - m : yabai -m window --toggle zoom-fullscreen
 
 # balance out tree of windows (resize to occupy same area)
-ctrl + cmd - e : yabai -m space --balance
+shift + cmd - e : yabai -m space --balance
 
 # swap windows
 shift + cmd - j : yabai -m window --swap south
 shift + cmd - k : yabai -m window --swap north
 shift + cmd - h : yabai -m window --swap west
 shift + cmd - l : yabai -m window --swap east
-
-# move window and split
-ctrl + cmd - j : yabai -m window --warp south
-ctrl + cmd - k : yabai -m window --warp north
-ctrl + cmd - h : yabai -m window --warp west
-ctrl + cmd - l : yabai -m window --warp east
-
-# move window to display left and right
-shift + cmd - w : yabai -m window --display west; yabai -m display --focus west;
-shift + cmd - e : yabai -m window --display east; yabai -m display --focus east;
-
-# move window to prev and next space
-# shift + cmd - p : yabai -m window --space prev;
-# shift + cmd - n : yabai -m window --space next;
 
 # options: zoom-parent, zoom-fullscreen, native-fullscreen
 shift + cmd - o : yabai -m window --toggle zoom-parent
@@ -57,6 +43,20 @@ shift + cmd - 4 : yabai -m window --space 14;
 shift + cmd - 5 : yabai -m window --space 15;
 shift + cmd - 6 : yabai -m window --space 16;
 shift + cmd - 7 : yabai -m window --space 17;
+
+# move window and split
+ctrl + cmd - j : yabai -m window --warp south
+ctrl + cmd - k : yabai -m window --warp north
+ctrl + cmd - h : yabai -m window --warp west
+ctrl + cmd - l : yabai -m window --warp east
+
+# move window to display left and right
+ctrl + cmd - w : yabai -m window --display west; yabai -m display --focus west;
+ctrl + cmd - e : yabai -m window --display east; yabai -m display --focus east;
+
+# move window to prev and next space
+# shift + cmd - p : yabai -m window --space prev;
+# shift + cmd - n : yabai -m window --space next;
 
 # toggle split column and horizontal
 ctrl + cmd - space : yabai -m window --toggle split
