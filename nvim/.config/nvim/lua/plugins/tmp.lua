@@ -1,15 +1,9 @@
-local zoxide = function()
-  require("fzf-lua").fzf_exec("zoxide query -l -s", {
-    fzf_opts = {
-      ["--with-nth"] = "2",
-      ["--no-sort"] = "",
-    },
-    prompt = "Zoxide❯ ",
+local fd_oil = function()
+  require("fzf-lua").fzf_exec("fd --type=directory", {
+    prompt = "Dir❯ ",
     actions = {
       ["default"] = function(selected, _)
-        local path = vim.split(selected[1]:gsub("^%s*", ""), " ")[2]
-        require("oil").open_float(path)
-        -- vim.cmd("cd " .. path)
+        require("oil").open_float(selected[1])
       end,
     },
   })
@@ -20,7 +14,7 @@ return {
     "stevearc/oil.nvim",
     keys = {
       { "<leader>fo", "<cmd>Oil --float<CR>", desc = "Open oil" },
-      { "<leader>fz", zoxide, desc = "Open oil with zoxide" },
+      { "<leader>fd", fd_oil, desc = "Open oil with dir" },
     },
     opts = {
       view_options = {
