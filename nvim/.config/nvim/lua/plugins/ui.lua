@@ -51,14 +51,14 @@ return {
             return vim.api.nvim_win_get_config(win).relative == ""
           end,
         },
-        -- {
-        --   ft = "lazyterm",
-        --   title = "LazyTerm",
-        --   size = { height = 0.4 },
-        --   filter = function(buf)
-        --     return not vim.b[buf].lazyterm_cmd
-        --   end,
-        -- },
+        {
+          ft = "lazyterm",
+          title = "LazyTerm",
+          size = { height = 0.4 },
+          filter = function(buf)
+            return not vim.b[buf].lazyterm_cmd
+          end,
+        },
         "Trouble",
         { ft = "qf", title = "QuickFix" },
         {
@@ -107,14 +107,14 @@ return {
         "neo-tree",
       },
       right = {
-        {
-          ft = "lazyterm",
-          title = "LazyTerm",
-          size = { width = 0.5 },
-          filter = function(buf)
-            return not vim.b[buf].lazyterm_cmd
-          end,
-        },
+        -- {
+        --   ft = "lazyterm",
+        --   title = "LazyTerm",
+        --   size = { width = 0.5 },
+        --   filter = function(buf)
+        --     return not vim.b[buf].lazyterm_cmd
+        --   end,
+        -- },
       },
       keys = {
         -- increase width

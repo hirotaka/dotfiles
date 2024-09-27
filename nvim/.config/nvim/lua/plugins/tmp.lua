@@ -1,31 +1,18 @@
-local fd_oil = function()
-  require("fzf-lua").fzf_exec("fd --type=directory", {
-    prompt = "Dir❯ ",
-    actions = {
-      ["default"] = function(selected, _)
-        require("oil").open_float(selected[1])
-      end,
-    },
-  })
-end
-
 return {
   {
-    "stevearc/oil.nvim",
+    "chrisgrieser/nvim-spider",
     keys = {
-      { "<leader>fo", "<cmd>Oil --float<CR>", desc = "Open oil" },
-      { "<leader>fd", fd_oil, desc = "Open oil with dir" },
-    },
-    opts = {
-      view_options = {
-        show_hidden = true,
+      {
+        "w",
+        "<cmd>lua require('spider').motion('w')<CR>",
+        mode = { "n", "o", "x" },
       },
-      float = {
-        padding = 5,
+      {
+        "e",
+        "<cmd>lua require('spider').motion('e')<CR>",
+        mode = { "n", "o", "x" },
       },
     },
-    -- Optional dependencies
-    dependencies = { "nvim-tree/nvim-web-devicons" },
   },
   {
     "leath-dub/snipe.nvim",
