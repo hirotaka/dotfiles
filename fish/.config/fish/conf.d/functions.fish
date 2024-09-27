@@ -20,7 +20,6 @@ function snakecase
     perl -pe 's#([A-Z])#_\L$1#g' | perl -pe 's#^_##'
 end
 
-
 # using ripgrep combined with preview
 # find-in-file - usage: fif <searchTerm>
 function fif

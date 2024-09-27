@@ -52,13 +52,14 @@ mise activate fish | source
 # set -Ux fish_user_paths ~/.local/bin $fish_user_paths
 
 # For Japanese
-set -gx LESSCHARSET utf-8
+set -xg LESSCHARSET utf-8
 set -xg LC_ALL ja_JP.UTF-8
 set -xg LANG ja_JP.UTF-8
 set -xg LC_MESSAGES ja_JP.UTF-8
 
-# vim
-set -U EDITOR vim
+# Neovim
+set -xg EDITOR nvim
+
 # for mode in default insert visual
 #     fish_default_key_bindings -M $mode
 # end
