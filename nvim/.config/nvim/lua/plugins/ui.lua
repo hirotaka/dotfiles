@@ -106,16 +106,16 @@ return {
         },
         "neo-tree",
       },
-      right = {
-        -- {
-        --   ft = "lazyterm",
-        --   title = "LazyTerm",
-        --   size = { width = 0.5 },
-        --   filter = function(buf)
-        --     return not vim.b[buf].lazyterm_cmd
-        --   end,
-        -- },
-      },
+      -- right = {
+      -- {
+      --   ft = "lazyterm",
+      --   title = "LazyTerm",
+      --   size = { width = 0.5 },
+      --   filter = function(buf)
+      --     return not vim.b[buf].lazyterm_cmd
+      --   end,
+      -- },
+      -- },
       keys = {
         -- increase width
         ["<a-Left>"] = function(win)
