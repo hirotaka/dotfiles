@@ -4,6 +4,7 @@
 
 [core]
   ; editor = "/opt/homebrew/bin/nvim"
+  editor = "/usr/bin/vim"
 	excludesfile = /Users/hirotaka/.config/git/ignore
 	quotepath = false
 
