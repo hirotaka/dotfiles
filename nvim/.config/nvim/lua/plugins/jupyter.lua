@@ -62,7 +62,7 @@ return {
     event = "VeryLazy",
     config = function()
       local nn = require("notebook-navigator")
-      nn.setup({ activate_hydra_keys = "<leader>h", repl_provider = "molten" })
+      -- nn.setup({ activate_hydra_keys = "<leader>h", repl_provider = "molten" })
     end,
   },
 }
