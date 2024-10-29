@@ -1,0 +1,32 @@
+#%Module
+
+conflict llvm
+
+set root "$::env(HOMEBREW_PREFIX)/opt/llvm"
+
+# set PATH
+prepend-path PATH "$root/bin"
+
+# set CPPFLAGS
+# if { [info exists ::env(CPPFLAGS)] } {
+#     setenv CPPFLAGS "-I$root/include $::env(CPPFLAGS)"
+# } else {
+#     setenv CPPFLAGS "-I$root/include"
+# }
+
+# set LDFLAGS
+if { [info exists ::env(LDFLAGS)] } {
+    #setenv LDFLAGS "-L$root/lib $::env(LDFLAGS)"
+    # To use the bundled libc++
+    setenv LDFLAGS "-L$root/lib -L$root/lib/c++ -Wl,-rpath,$root/lib/c++ $::env(LDFLAGS)"
+} else {
+    #setenv LDFLAGS "-L$root/lib"
+    # To use the bundled libc++
+    setenv LDFLAGS "-L$root/lib -L$root/lib/c++ -Wl,-rpath,$root/lib/c++"
+}
+
+# To use the bundled libunwind please use the following LDFLAGS:
+#   LDFLAGS="-L/opt/homebrew/opt/llvm/lib/unwind -lunwind"
+#
+# To use the bundled libc++ please use the following LDFLAGS:
+#   LDFLAGS="-L/opt/homebrew/opt/llvm/lib/c++ -L/opt/homebrew/opt/llvm/lib/unwind -lunwind"
