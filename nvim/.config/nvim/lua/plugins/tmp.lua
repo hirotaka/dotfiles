@@ -1,5 +1,12 @@
 return {
   {
+    "nvim-lspconfig",
+    opts = {
+      inlay_hints = { enabled = false },
+    },
+  },
+
+  {
     "chrisgrieser/nvim-spider",
     keys = {
       {
@@ -13,14 +20,6 @@ return {
         mode = { "n", "o", "x" },
       },
     },
-  },
-  {
-    "leath-dub/snipe.nvim",
-    config = function()
-      local snipe = require("snipe")
-      snipe.setup()
-      vim.keymap.set("n", "gb", snipe.create_buffer_menu_toggler())
-    end,
   },
   {
     "nvim-orgmode/orgmode",
@@ -190,6 +189,14 @@ return {
     end,
   },
   -- {
+  --   "leath-dub/snipe.nvim",
+  --   config = function()
+  --     local snipe = require("snipe")
+  --     snipe.setup()
+  --     vim.keymap.set("n", "gb", snipe.create_buffer_menu_toggler())
+  --   end,
+  -- },
+  -- {
   --   "swaits/zellij-nav.nvim",
   --   lazy = true,
   --   event = "VeryLazy",
@@ -228,12 +235,6 @@ return {
   --     { "<c-l>", "<cmd>NavigatorRight<CR>", { silent = true, desc = "navigate right" } },
   --     { "<c-k>", "<cmd>NavigatorUp<cr>", { silent = true, desc = "navigate up" } },
   --     { "<c-j>", "<cmd>NavigatorDown<cr>", { silent = true, desc = "navigate down" } },
-  --   },
-  -- },
-  -- {
-  --   "nvim-lspconfig",
-  --   opts = {
-  --     inlay_hints = { enabled = false },
   --   },
   -- },
   -- {
