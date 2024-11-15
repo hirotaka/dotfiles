@@ -15,6 +15,12 @@ local rails_alternative_targets = {
 return {
   {
     "neovim/nvim-lspconfig",
+    servers = {
+      ruby_lsp = {
+        mason = false,
+        cmd = { " /Users/hirotaka/.local/share/mise/shims/ruby-lsp" },
+      },
+    },
     opts = function(_, opts)
       local on_publish_diagnostics = vim.lsp.diagnostic.on_publish_diagnostics
       opts.servers.bashls = vim.tbl_deep_extend("force", opts.servers.bashls or {}, {
@@ -27,6 +33,7 @@ return {
           end,
         },
       })
+      opts.inlay_hints = { enabled = false }
     end,
   },
   {
@@ -41,15 +48,6 @@ return {
     "zbirenbaum/copilot.lua",
     opts = {
       copiloo_node_command = "/Users/hirotaka/.local/share/mise/installs/node/20.15/bin/node",
-    },
-  },
-  {
-    "neovim/nvim-lspconfig",
-    servers = {
-      ruby_lsp = {
-        mason = false,
-        cmd = { " /Users/hirotaka/.local/share/mise/shims/ruby-lsp" },
-      },
     },
   },
   {

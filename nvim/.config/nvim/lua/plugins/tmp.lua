@@ -1,11 +1,5 @@
 return {
-  {
-    "nvim-lspconfig",
-    opts = {
-      inlay_hints = { enabled = false },
-    },
-  },
-
+  { "jannis-baum/vivify.vim" },
   {
     "chrisgrieser/nvim-spider",
     keys = {
@@ -80,11 +74,6 @@ return {
       global_snippets = { "all", "global" },
       search_paths = { vim.fn.stdpath("config") .. "/snippets" },
     },
-  },
-  {
-    "luckasRanarison/tailwind-tools.nvim",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    opts = {},
   },
   {
     "cameron-wags/rainbow_csv.nvim",
@@ -187,6 +176,11 @@ return {
         },
       }
     end,
+  },
+  {
+    "luckasRanarison/tailwind-tools.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    opts = {},
   },
   -- {
   --   "leath-dub/snipe.nvim",
