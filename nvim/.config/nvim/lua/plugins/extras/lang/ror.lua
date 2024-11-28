@@ -1,14 +1,14 @@
 return {
-  {
-    "weizheheng/ror.nvim",
-    keys = {
-      {
-        "<leader>rc",
-        "<cmd>RorCommands<cr>",
-        desc = "RoR Commands",
-      },
-    },
-  },
+  -- {
+  --   "weizheheng/ror.nvim",
+  --   keys = {
+  --     {
+  --       "<leader>rc",
+  --       "<cmd>RorCommands<cr>",
+  --       desc = "RoR Commands",
+  --     },
+  --   },
+  -- },
   -- {
   --   "stevearc/dressing.nvim",
   --   opts = {

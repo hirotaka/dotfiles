@@ -43,7 +43,7 @@ end
 # end
 
 # mise (asdf alternative)
-mise activate fish | source
+# mise activate fish | source
 
 # rust
 # set -Ux fish_user_paths ~/.cargo/bin $fish_user_paths
@@ -131,3 +131,4 @@ zoxide init fish | source
 # modules
 source $HOMEBREW_PREFIX/opt/modules/init/fish
 module use ~/.config/modulefiles
+/Users/hirotaka/.local/bin/mise activate fish | source

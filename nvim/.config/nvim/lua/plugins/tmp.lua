@@ -1,4 +1,11 @@
 return {
+  {
+    "voxelprismatic/rabbit.nvim",
+    config = function()
+      require("rabbit").setup({})
+    end,
+  },
+
   { "jannis-baum/vivify.vim" },
   {
     "chrisgrieser/nvim-spider",
