@@ -1,5 +1,4 @@
 return {
-
   -- Ensure GH tool is installed
   -- {
   --   "williamboman/mason.nvim",

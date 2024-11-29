@@ -129,6 +129,11 @@ set fish_vi_force_cursor 1
 zoxide init fish | source
 
 # modules
-source $HOMEBREW_PREFIX/opt/modules/init/fish
-module use ~/.config/modulefiles
+# source $HOMEBREW_PREFIX/opt/modules/init/fish
+# module use ~/.config/modulefiles
+
+# mise
 /Users/hirotaka/.local/bin/mise activate fish | source
+
+# jj
+# jj util completion fish | source

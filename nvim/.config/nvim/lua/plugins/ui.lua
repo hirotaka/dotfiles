@@ -1,23 +1,5 @@
 return {
   {
-    "nvim-neo-tree/neo-tree.nvim",
-    dependencies = {
-      "s1n7ax/nvim-window-picker",
-      opts = {},
-    },
-    keys = {
-      { "<leader>n", "<cmd>Neotree<cr>", desc = "NeoTree" },
-    },
-  },
-  -- {
-  --   "rcarriga/nvim-notify",
-  --   config = function()
-  --     require("notify").setup({
-  --       background_colour = "#000000",
-  --     })
-  --   end,
-  -- },
-  {
     "folke/tokyonight.nvim",
     opts = {
       style = "moon",
@@ -30,6 +12,24 @@ return {
       },
     },
   },
+  -- {
+  --   "nvim-neo-tree/neo-tree.nvim",
+  --   dependencies = {
+  --     "s1n7ax/nvim-window-picker",
+  --     opts = {},
+  --   },
+  --   keys = {
+  --     { "<leader>n", "<cmd>Neotree<cr>", desc = "NeoTree" },
+  --   },
+  -- },
+  -- {
+  --   "rcarriga/nvim-notify",
+  --   config = function()
+  --     require("notify").setup({
+  --       background_colour = "#000000",
+  --     })
+  --   end,
+  -- },
   -- {
   --   "folke/edgy.nvim",
   --   opts = {
