@@ -1,6 +1,13 @@
 [tools]
 nodejs = "20.15.0"
-node = "20.18.0"
+node = "22"
 ruby = "3.3.6"
 usage = "latest"
 rust = "latest"
+lua = "5.1"
+go = "latest"
+java = "latest"
+julia = "latest"
+
+[settings]
+vfox = false
