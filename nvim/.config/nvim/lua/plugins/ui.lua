@@ -13,28 +13,29 @@ return {
     },
   },
   -- {
-  --   "nvim-neo-tree/neo-tree.nvim",
-  --   dependencies = {
-  --     "s1n7ax/nvim-window-picker",
-  --     opts = {},
-  --   },
-  --   keys = {
-  --     { "<leader>n", "<cmd>Neotree<cr>", desc = "NeoTree" },
-  --   },
-  -- },
-  -- {
-  --   "rcarriga/nvim-notify",
-  --   config = function()
-  --     require("notify").setup({
-  --       background_colour = "#000000",
-  --     })
-  --   end,
-  -- },
-  -- {
   --   "folke/edgy.nvim",
   --   opts = {
+  --     keys = {
+  --       -- increase width
+  --       ["<a-Left>"] = function(win)
+  --         win:resize("width", -2)
+  --       end,
+  --       -- decrease width
+  --       ["<a-Right>"] = function(win)
+  --         win:resize("width", 2)
+  --       end,
+  --       -- increase height
+  --       ["<a-Up>"] = function(win)
+  --         win:resize("height", 2)
+  --       end,
+  --       -- decrease height
+  --       ["<a-Down>"] = function(win)
+  --         win:resize("height", -2)
+  --       end,
+  --     },
   --     options = {
   --       left = { size = 39 },
+  --       right = { size = 39 },
   --     },
   --     bottom = {
   --       {
@@ -106,33 +107,34 @@ return {
   --       },
   --       "neo-tree",
   --     },
-  --     -- right = {
-  --     -- {
-  --     --   ft = "lazyterm",
-  --     --   title = "LazyTerm",
-  --     --   size = { width = 0.5 },
-  --     --   filter = function(buf)
-  --     --     return not vim.b[buf].lazyterm_cmd
-  --     --   end,
-  --     -- },
-  --     -- },
-  --     keys = {
-  --       -- increase width
-  --       ["<a-Left>"] = function(win)
-  --         win:resize("width", -2)
-  --       end,
-  --       -- decrease width
-  --       ["<a-Right>"] = function(win)
-  --         win:resize("width", 2)
-  --       end,
-  --       -- increase height
-  --       ["<a-Up>"] = function(win)
-  --         win:resize("height", 2)
-  --       end,
-  --       -- decrease height
-  --       ["<a-Down>"] = function(win)
-  --         win:resize("height", -2)
-  --       end,
+  --     right = {
+  --       {
+  --         ft = "lazyterm",
+  --         title = "LazyTerm",
+  --         size = { width = 0.5 },
+  --         filter = function(buf)
+  --           return not vim.b[buf].lazyterm_cmd
+  --         end,
+  --       },
   --     },
+  --   },
+  -- },
+  -- {
+  --   "nvim-neo-tree/neo-tree.nvim",
+  --   dependencies = {
+  --     "s1n7ax/nvim-window-picker",
+  --     opts = {},
+  --   },
+  --   keys = {
+  --     { "<leader>n", "<cmd>Neotree<cr>", desc = "NeoTree" },
+  --   },
+  -- },
+  -- {
+  --   "rcarriga/nvim-notify",
+  --   config = function()
+  --     require("notify").setup({
+  --       background_colour = "#000000",
+  --     })
+  --   end,
   -- },
 }
