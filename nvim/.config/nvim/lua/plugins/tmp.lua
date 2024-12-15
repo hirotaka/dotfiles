@@ -44,8 +44,9 @@ return {
       require("rabbit").setup({})
     end,
   },
-
-  { "jannis-baum/vivify.vim" },
+  {
+    "jannis-baum/vivify.vim",
+  },
   {
     "chrisgrieser/nvim-spider",
     keys = {
@@ -112,16 +113,6 @@ return {
     },
   },
   {
-    "garymjr/nvim-snippets",
-    dependencies = {
-      "rafamadriz/friendly-snippets",
-    },
-    opts = {
-      global_snippets = { "all", "global" },
-      search_paths = { vim.fn.stdpath("config") .. "/snippets" },
-    },
-  },
-  {
     "cameron-wags/rainbow_csv.nvim",
     config = true,
     ft = {
@@ -174,6 +165,16 @@ return {
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     opts = {},
   },
+  -- {
+  --   "garymjr/nvim-snippets",
+  --   dependencies = {
+  --     "rafamadriz/friendly-snippets",
+  --   },
+  --   opts = {
+  --     global_snippets = { "all", "global" },
+  --     search_paths = { vim.fn.stdpath("config") .. "/snippets" },
+  --   },
+  -- },
   -- {
   --   "folke/snacks.nvim",
   --   priority = 1000,

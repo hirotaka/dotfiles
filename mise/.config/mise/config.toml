@@ -1,10 +1,10 @@
 [tools]
 nodejs = "20.15.0"
-node = "22"
+node = "22.12.0"
 ruby = "3.3.6"
 usage = "latest"
 rust = "latest"
-lua = "5.1"
+lua = "5.4"
 go = "latest"
 java = "latest"
 julia = "latest"
