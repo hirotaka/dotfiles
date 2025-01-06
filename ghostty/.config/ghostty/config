@@ -1,3 +1,11 @@
 # font-family = "Moralerspace Argon NF"
 # font-size = 12.5
 theme = "tokyonight"
+keybind = global:ctrl+grave_accent=toggle_quick_terminal
+quick-terminal-position = "center"
+
+# no font ligatures
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
+
