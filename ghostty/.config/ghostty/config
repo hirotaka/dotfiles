@@ -3,9 +3,9 @@
 theme = "tokyonight"
 keybind = global:ctrl+grave_accent=toggle_quick_terminal
 quick-terminal-position = "center"
+confirm-close-surface = false
 
 # no font ligatures
 font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
-

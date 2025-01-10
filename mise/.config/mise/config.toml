@@ -4,10 +4,11 @@ node = "22"
 ruby = "3.3"
 usage = "latest"
 rust = "latest"
-lua = "5.4"
+lua = "5.1"
 go = "latest"
 java = "latest"
 julia = "latest"
+python = "3.13"
 
 [settings]
 vfox = false
