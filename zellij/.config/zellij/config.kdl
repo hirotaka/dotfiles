@@ -1,9 +1,10 @@
 // If you'd like to override the default keybindings completely, be sure to change "keybinds" to "keybinds clear-defaults=true"
-keybinds {
+keybinds clear-defaults=true {
     unbind "Ctrl p" "Ctrl g" "Ctrl n" "Ctrl h" "Ctrl s" "Ctrl o" "Ctrl q" "Ctrl b" "Alt Left" "Alt Right" "Alt Up" "Alt Down" "Ctrl j" "Ctrl k" "Ctrl l"
     normal {
         // uncomment this and adjust key if using copy_on_select=false
         // bind "Alt c" { Copy; }
+        unbind "Alt Right" "Alt Left"
     }
     locked {
         bind "Ctrl g" { SwitchToMode "Normal"; }
