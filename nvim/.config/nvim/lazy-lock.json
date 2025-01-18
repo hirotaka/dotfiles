@@ -67,7 +67,7 @@
   "nvim-web-devicons": { "branch": "master", "commit": "aafa5c187a15701a7299a392b907ec15d9a7075f" },
   "oil.nvim": { "branch": "master", "commit": "09fa1d22f5edf0730824d2b222d726c8c81bbdc9" },
   "one-small-step-for-vimkind": { "branch": "main", "commit": "5d2edc8937978585881d97a8fec4c2903fa4d72c" },
-  "orgmode": { "branch": "master", "commit": "d62fd3cdb2958e2e76fb0af4ea64d6209703fbe0" },
+  "orgmode": { "branch": "master", "commit": "64387fcd0c97e5fadbc7fb48939853fbff8882a0" },
   "outline.nvim": { "branch": "main", "commit": "454aedc7cc6d5abd1e6776e87ccf8a3df119c207" },
   "overseer.nvim": { "branch": "master", "commit": "35b729b746a4d65c83efee5b5643f07c2c1105d2" },
   "pathlib.nvim": { "branch": "main", "commit": "57e5598af6fe253761c1b48e0b59b7cd6699e2c1" },
@@ -77,7 +77,7 @@
   "rainbow_csv.nvim": { "branch": "main", "commit": "7f3fddfe813641035fac2cdf94c2ff69bb0bf0b9" },
   "render-markdown.nvim": { "branch": "main", "commit": "ad055861d17afe058bd835e82292e14a64b51b1d" },
   "rustaceanvim": { "branch": "master", "commit": "9c71ad9c390339cdc8e0a04631842e015af1ad76" },
-  "snacks.nvim": { "branch": "main", "commit": "34208ebe00a237a232a6050f81fb89f25d473180" },
+  "snacks.nvim": { "branch": "main", "commit": "3a04064a86d96a3eb4efccaf1c4a55ee0c143728" },
   "tailwind-tools.nvim": { "branch": "master", "commit": "3703e162d819a04b128902c508276553dae0dfb8" },
   "telescope.nvim": { "branch": "master", "commit": "415af52339215926d705cccc08145f3782c4d132" },
   "text-case.nvim": { "branch": "main", "commit": "e898cfd46fa6cde0e83abb624a16e67d2ffc6457" },
@@ -93,5 +93,5 @@
   "winshift.nvim": { "branch": "main", "commit": "37468ed6f385dfb50402368669766504c0e15583" },
   "yaml.nvim": { "branch": "main", "commit": "7f1e6a368bc366d510eece0247440db7ed3a4552" },
   "yanky.nvim": { "branch": "main", "commit": "d2696b30e389dced94d5acab728f524a25f308d2" },
-  "yazi.nvim": { "branch": "main", "commit": "f57e1eed86b13eaf51f42a4ef68dbb19bc8d77a4" }
+  "yazi.nvim": { "branch": "main", "commit": "1674c9dcfd4eca1e02a2384ccb657eceef203c44" }
 }
