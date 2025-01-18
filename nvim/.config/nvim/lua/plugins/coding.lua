@@ -47,7 +47,7 @@ return {
   {
     "zbirenbaum/copilot.lua",
     opts = {
-      copiloo_node_command = "/Users/hirotaka/.local/share/mise/installs/node/20.15/bin/node",
+      copilot_node_command = "/Users/hirotaka/.local/share/mise/installs/node/20.15/bin/node",
     },
   },
   -- {

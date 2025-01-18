@@ -25,6 +25,9 @@ return {
       },
     },
     -- Optional dependencies
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+      "ibhagwan/fzf-lua",
+    },
   },
 }
