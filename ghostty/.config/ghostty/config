@@ -9,3 +9,8 @@ confirm-close-surface = false
 font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
+
+# for work with zellij
+macos-option-as-alt = left
+keybind = alt+left=unbind
+keybind = alt+right=unbind

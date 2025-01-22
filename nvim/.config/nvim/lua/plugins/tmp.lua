@@ -9,32 +9,6 @@ return {
     config = true,
   },
   {
-    "ibhagwan/fzf-lua",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      -- カスタム関数の定義
-      local function goto_file_line()
-        local fzf_lua = require("fzf-lua")
-        fzf_lua.files({
-          actions = {
-            ["default"] = function(selected)
-              local file = selected[1]
-              vim.ui.input({ prompt = "Enter line number: " }, function(line)
-                if line and tonumber(line) then
-                  vim.cmd(string.format("edit +%s %s", line, file))
-                else
-                  vim.cmd("edit " .. file)
-                end
-              end)
-            end,
-          },
-        })
-      end
-      -- キーマッピングの設定
-      vim.keymap.set("n", "<leader>fl", goto_file_line, { desc = "Go to file and line" })
-    end,
-  },
-  {
     "wsdjeg/vim-fetch",
     lazy = false,
   },
@@ -165,6 +139,33 @@ return {
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     opts = {},
   },
+  -- {
+  --   "ibhagwan/fzf-lua",
+  --   dependencies = { "nvim-tree/nvim-web-devicons" },
+  --   config = function()
+  --     -- カスタム関数の定義
+  --     local function goto_file_line()
+  --       local fzf_lua = require("fzf-lua")
+  --       fzf_lua.files({
+  --         actions = {
+  --           ["default"] = function(selected)
+  --             local file = selected[1]
+  --             vim.ui.input({ prompt = "Enter line number: " }, function(line)
+  --               if line and tonumber(line) then
+  --                 vim.cmd(string.format("edit +%s %s", line, file))
+  --               else
+  --                 vim.cmd("edit " .. file)
+  --               end
+  --             end)
+  --           end,
+  --         },
+  --       })
+  --     end
+  --     -- キーマッピングの設定
+  --     vim.keymap.set("n", "<leader>fl", goto_file_line, { desc = "Go to file and line" })
+  --   end,
+  -- },
+
   -- {
   --   "garymjr/nvim-snippets",
   --   dependencies = {
