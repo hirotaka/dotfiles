@@ -1,4 +1,13 @@
 return {
+  {
+    "neovim/nvim-lspconfig",
+    -- https://github.com/LazyVim/LazyVim/discussions/520
+    opts = {
+      servers = {
+        cssls = { settings = { css = { lint = { unknownAtRules = "ignore" } } } },
+      },
+    },
+  },
   -- {
   --   "neovim/nvim-lspconfig",
   --   init = function()

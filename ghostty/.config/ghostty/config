@@ -1,16 +1,32 @@
-# font-family = "Moralerspace Argon NF"
-# font-size = 12.5
-theme = "tokyonight"
-keybind = global:ctrl+grave_accent=toggle_quick_terminal
-quick-terminal-position = "center"
-confirm-close-surface = false
+#
+# Font
+#
+font-family = "Moralerspace Argon NF"
+font-size = 13
+
+# adjust-cell-width = 10%
+adjust-cell-height = 1
 
 # no font ligatures
 font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
 
+theme = "tokyonight"
+
+#
+# Options
+#
+confirm-close-surface = false
+quick-terminal-position = "center"
 # for work with zellij
 macos-option-as-alt = left
+
+#
+# Keybind
+#
+# for zellij
 keybind = alt+left=unbind
 keybind = alt+right=unbind
+
+keybind = global:ctrl+grave_accent=toggle_quick_terminal
