@@ -33,17 +33,17 @@ yabai < t : yabai -m window --toggle float --grid 4:4:1:1:2:2 ; skhd -k "ctrl - 
 yabai < m : yabai -m window --toggle zoom-fullscreen ; skhd -k "ctrl - t"
 
 # balance out tree of windows (resize to occupy same area)
-# 0x18:  '='
+# 0x18: =
 yabai < 0x18 : yabai -m space --balance ; skhd -k "ctrl - t"
+
+# options: zoom-parent, zoom-fullscreen, native-fullscreen
+yabai < o : yabai -m window --toggle zoom-parent ; skhd -k "ctrl - t"
 
 # swap windows
 shift + cmd - j : yabai -m window --swap south
 shift + cmd - k : yabai -m window --swap north
 shift + cmd - h : yabai -m window --swap west
 shift + cmd - l : yabai -m window --swap east
-
-# options: zoom-parent, zoom-fullscreen, native-fullscreen
-shift + cmd - o : yabai -m window --toggle zoom-parent
 
 # move window to space #
 shift + cmd - 1 : yabai -m window --space 11;
@@ -75,4 +75,3 @@ ctrl + cmd - space : yabai -m window --toggle split
 ctrl + cmd - q : yabai --stop-service
 ctrl + cmd - s : yabai --start-service
 ctrl + cmd - r : yabai --stop-service && yabai --start-service
-
