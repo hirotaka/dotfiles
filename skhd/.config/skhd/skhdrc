@@ -1,30 +1,40 @@
+# :: default : borders active_color=0xffff9e64
+# :: yabai @ : borders active_color=0xffc53b53
+:: default
+:: yabai @
+
+ctrl - t ; yabai
+
+yabai < ctrl - t ; default
+
 # change window focus within space
-cmd - j : yabai -m window --focus south
-cmd - k : yabai -m window --focus north
-cmd - h : yabai -m window --focus west
-cmd - l : yabai -m window --focus east
+yabai < j : yabai -m window --focus south
+yabai < k : yabai -m window --focus north
+yabai < h : yabai -m window --focus west
+yabai < l : yabai -m window --focus east
 
 # change focus between external displays (left and right)
-cmd - w: yabai -m display --focus west
-cmd - e: yabai -m display --focus east
+yabai < w: yabai -m display --focus west
+yabai < e: yabai -m display --focus east
 
 # rotate layout clockwise
-shift + cmd - r : yabai -m space --rotate 270
+yabai < r : yabai -m space --rotate 270; skhd -k "ctrl - t"
 
 # flip along y-axis
-shift + cmd - y : yabai -m space --mirror y-axis
+yabai < y : yabai -m space --mirror y-axis; skhd -k "ctrl - t"
 
 # flip along x-axis
-shift + cmd - x : yabai -m space --mirror x-axis
+yabai < x : yabai -m space --mirror x-axis; skhd -k "ctrl - t"
 
 # toggle window float
-shift + cmd - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
+yabai < t : yabai -m window --toggle float --grid 4:4:1:1:2:2 ; skhd -k "ctrl - t"
 
 # maximize a window
-shift + cmd - m : yabai -m window --toggle zoom-fullscreen
+yabai < m : yabai -m window --toggle zoom-fullscreen ; skhd -k "ctrl - t"
 
 # balance out tree of windows (resize to occupy same area)
-shift + cmd - e : yabai -m space --balance
+# 0x18:  '='
+yabai < 0x18 : yabai -m space --balance ; skhd -k "ctrl - t"
 
 # swap windows
 shift + cmd - j : yabai -m window --swap south
