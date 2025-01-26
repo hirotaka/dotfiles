@@ -1,24 +1,22 @@
-# :: default : borders active_color=0xffff9e64
-# :: yabai @ : borders active_color=0xffc53b53
-:: default
-:: yabai @
+:: default : borders active_color=0xffff9e64
+:: yabai @ : borders active_color=0xffc53b53
 
 ctrl - t ; yabai
 
 yabai < ctrl - t ; default
 
 # change window focus within space
-yabai < j : yabai -m window --focus south
-yabai < k : yabai -m window --focus north
-yabai < h : yabai -m window --focus west
-yabai < l : yabai -m window --focus east
+yabai < j : yabai -m window --focus south; borders active_color=0xffff9e64
+yabai < k : yabai -m window --focus north; borders active_color=0xffff9e64
+yabai < h : yabai -m window --focus west; borders active_color=0xffff9e64
+yabai < l : yabai -m window --focus east; borders active_color=0xffff9e64
 
 # change focus between external displays (left and right)
-yabai < w: yabai -m display --focus west
-yabai < e: yabai -m display --focus east
+yabai < w: yabai -m display --focus west; borders active_color=0xffff9e64
+yabai < e: yabai -m display --focus east; borders active_color=0xffff9e64
 
 # rotate layout clockwise
-yabai < r : yabai -m space --rotate 270; skhd -k "ctrl - t"
+yabai < c : yabai -m space --rotate 270; skhd -k "ctrl - t"
 
 # flip along y-axis
 yabai < y : yabai -m space --mirror y-axis; skhd -k "ctrl - t"
@@ -27,51 +25,51 @@ yabai < y : yabai -m space --mirror y-axis; skhd -k "ctrl - t"
 yabai < x : yabai -m space --mirror x-axis; skhd -k "ctrl - t"
 
 # toggle window float
-yabai < t : yabai -m window --toggle float --grid 4:4:1:1:2:2 ; skhd -k "ctrl - t"
+yabai < f : yabai -m window --toggle float --grid 4:4:1:1:2:2; skhd -k "ctrl - t"
 
 # maximize a window
-yabai < m : yabai -m window --toggle zoom-fullscreen ; skhd -k "ctrl - t"
+yabai < m : yabai -m window --toggle zoom-fullscreen; skhd -k "ctrl - t"
 
 # balance out tree of windows (resize to occupy same area)
 # 0x18: =
-yabai < 0x18 : yabai -m space --balance ; skhd -k "ctrl - t"
+yabai < 0x18 : yabai -m space --balance; skhd -k "ctrl - t"
 
 # options: zoom-parent, zoom-fullscreen, native-fullscreen
-yabai < o : yabai -m window --toggle zoom-parent ; skhd -k "ctrl - t"
+yabai < o : yabai -m window --toggle zoom-parent; skhd -k "ctrl - t"
 
 # swap windows
-shift + cmd - j : yabai -m window --swap south
-shift + cmd - k : yabai -m window --swap north
-shift + cmd - h : yabai -m window --swap west
-shift + cmd - l : yabai -m window --swap east
-
-# move window to space #
-shift + cmd - 1 : yabai -m window --space 11;
-shift + cmd - 2 : yabai -m window --space 12;
-shift + cmd - 3 : yabai -m window --space 13;
-shift + cmd - 4 : yabai -m window --space 14;
-shift + cmd - 5 : yabai -m window --space 15;
-shift + cmd - 6 : yabai -m window --space 16;
-shift + cmd - 7 : yabai -m window --space 17;
-
-# move window and split
-ctrl + cmd - j : yabai -m window --warp south
-ctrl + cmd - k : yabai -m window --warp north
-ctrl + cmd - h : yabai -m window --warp west
-ctrl + cmd - l : yabai -m window --warp east
+yabai < shift - j : yabai -m window --swap south; skhd -k "ctrl - t"
+yabai < shift - k : yabai -m window --swap north; skhd -k "ctrl - t"
+yabai < shift - h : yabai -m window --swap west; skhd -k "ctrl - t"
+yabai < shift - l : yabai -m window --swap east; skhd -k "ctrl - t"
 
 # move window to display left and right
-ctrl + cmd - w : yabai -m window --display west; yabai -m display --focus west;
-ctrl + cmd - e : yabai -m window --display east; yabai -m display --focus east;
+yabai < shift - w : yabai -m window --display west; yabai -m display --focus west; skhd -k "ctrl - t"
+yabai < shift - e : yabai -m window --display east; yabai -m display --focus east; skhd -k "ctrl - t"
+
+# move window to space #
+# yabai < shift - 1 : yabai -m window --space 1; skhd -k "ctrl - t"
+# yabai < shift - 2 : yabai -m window --space 2; skhd -k "ctrl - t"
+# yabai < shift - 3 : yabai -m window --space 3; skhd -k "ctrl - t"
+# yabai < shift - 4 : yabai -m window --space 4; skhd -k "ctrl - t"
+# yabai < shift - 5 : yabai -m window --space 5; skhd -k "ctrl - t"
+# yabai < shift - 6 : yabai -m window --space 6; skhd -k "ctrl - t"
+# yabai < shift - 7 : yabai -m window --space 7; skhd -k "ctrl - t"
+
+# move window and split
+yabai < ctrl - j : yabai -m window --warp south; skhd -k "ctrl - t"
+yabai < ctrl - k : yabai -m window --warp north; skhd -k "ctrl - t"
+yabai < ctrl - h : yabai -m window --warp west; skhd -k "ctrl - t"
+yabai < ctrl - l : yabai -m window --warp east; skhd -k "ctrl - t"
 
 # move window to prev and next space
 # shift + cmd - p : yabai -m window --space prev;
 # shift + cmd - n : yabai -m window --space next;
 
 # toggle split column and horizontal
-ctrl + cmd - space : yabai -m window --toggle split
+# yabai < space : yabai -m window --toggle split; shkd -k "ctrl - t"
 
 # stop/start/restart yabai
-ctrl + cmd - q : yabai --stop-service
-ctrl + cmd - s : yabai --start-service
-ctrl + cmd - r : yabai --stop-service && yabai --start-service
+yabai < q : yabai --stop-service; shkd -k "ctrl - t"
+yabai < s : yabai --start-service; skhd -k "ctrl - t"
+yabai < r : yabai --restart-service; skhd -k "ctrl - t"
