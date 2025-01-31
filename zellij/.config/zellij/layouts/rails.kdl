@@ -10,11 +10,27 @@ layout {
     }
   }
 
-  swap_tiled_layout name="stacked" {
+  // swap_tiled_layout name="stacked" {
+  //   tab {
+  //     pane split_direction="vertical" {
+  //       pane size="50%"
+  //       pane stacked=true { children; }
+  //     }
+  //   }
+  // }
+    
+  swap_tiled_layout name="vertical" {
+    tab max_panes=2 {
+      pane {
+        pane
+        pane
+      }
+    }
     tab {
       pane split_direction="vertical" {
-        pane size="50%"
-        pane stacked=true { children; }
+        pane
+        pane
+        pane
       }
     }
   }
