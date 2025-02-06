@@ -15,7 +15,12 @@ function zellij_new_session
         set session $argv[3]
     end
 
-    zellij --session $session --new-session-with-layout $argv[2]
+    set -l pattern (string join "$session" '[^-]')
+    if zellij ls | strip-ansi-escapes | grep -E "$pattern"
+        zellij attach $session
+    else
+        zellij --session $session --new-session-with-layout $argv[2]
+    end
 end
 
 alias zen zellij_new_session
