@@ -15,7 +15,7 @@ function zellij_new_session
         set session $argv[3]
     end
 
-    set -l pattern (string join "$session" '[^-]')
+    set -l pattern (string join '' $session '[^-]')
     if zellij ls | strip-ansi-escapes | grep -E "$pattern"
         zellij attach $session
     else

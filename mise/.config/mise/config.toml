@@ -1,7 +1,7 @@
 [tools]
 nodejs = "20.15.0"
 node = "22"
-ruby = "3.3"
+ruby = "latest"
 usage = "latest"
 rust = "latest"
 lua = "5.1"

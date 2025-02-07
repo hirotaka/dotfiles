@@ -21,6 +21,7 @@ confirm-close-surface = false
 quick-terminal-position = "center"
 # for work with zellij
 macos-option-as-alt = left
+copy-on-select = true
 
 #
 # Keybind
