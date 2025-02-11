@@ -11,7 +11,7 @@
 --   { context = "worker", target = "/app/workers/**/%1_worker.rb" },
 --   { context = "factories", target = "/spec/factories/%1.rb", transformer = "pluralize" },
 -- }
---
+
 return {
   {
     "neovim/nvim-lspconfig",
@@ -37,19 +37,19 @@ return {
     end,
   },
   {
-    "cuducos/yaml.nvim",
-    ft = { "yaml" }, -- optional
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-telescope/telescope.nvim", -- optional
-    },
-  },
-  {
     "zbirenbaum/copilot.lua",
     opts = {
-      copilot_node_command = "/Users/hirotaka/.local/share/mise/installs/node/20.15/bin/node",
+      copilot_node_command = "/Users/hirotaka/.local/share/mise/installs/node/22.13.1/bin/node",
     },
   },
+  -- {
+  --   "cuducos/yaml.nvim",
+  --   ft = { "yaml" }, -- optional
+  --   dependencies = {
+  --     "nvim-treesitter/nvim-treesitter",
+  --     "nvim-telescope/telescope.nvim", -- optional
+  --   },
+  -- },
   -- {
   --   "rgroli/other.nvim",
   --   cmd = { "Other", "OtherClear", "OtherSplit", "OtherVSplit" },
