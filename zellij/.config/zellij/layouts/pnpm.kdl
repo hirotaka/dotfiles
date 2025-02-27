@@ -48,11 +48,9 @@ layout {
 
   tab name="services" {
     pane {
-      name "nuxt"
+      name "pnpm dev"
       start_suspended true
-      // command "npm"
-      // args "run" "dev"
-      command "yarn"
+      command "pnpm"
       args "dev"
     }
   }
