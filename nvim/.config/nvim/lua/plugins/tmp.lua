@@ -1,5 +1,8 @@
 return {
   {
+    "haya14busa/vim-asterisk",
+  },
+  {
     "NeogitOrg/neogit",
     dependencies = {
       "nvim-lua/plenary.nvim",
