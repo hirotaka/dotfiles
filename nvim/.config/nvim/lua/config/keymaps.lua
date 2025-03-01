@@ -23,13 +23,13 @@ map("n", "<Leader>xc", ":call setreg('+', expand('%:p:.'))<CR>", { desc = "Copy 
 -- https://github.com/haya14busa/vim-asterisk
 local modes = { "n", "v", "o" }
 for _, mode in ipairs(modes) do
-  vim.keymap.set(mode, "*", "<Plug>(asterisk-*)")
-  vim.keymap.set(mode, "#", "<Plug>(asterisk-#)")
-  vim.keymap.set(mode, "g*", "<Plug>(asterisk-g*)")
-  vim.keymap.set(mode, "g#", "<Plug>(asterisk-g#)")
-  vim.keymap.set(mode, "z*", "<Plug>(asterisk-z*)")
-  vim.keymap.set(mode, "gz*", "<Plug>(asterisk-gz*)")
-  vim.keymap.set(mode, "z#", "<Plug>(asterisk-z#)")
-  vim.keymap.set(mode, "gz#", "<Plug>(asterisk-gz#)")
+  vim.keymap.set(mode, "*", "<Plug>(asterisk-*)", { desc = "Search word under cursor" })
+  vim.keymap.set(mode, "#", "<Plug>(asterisk-#)", { desc = "Search word under cursor backwards" })
+  vim.keymap.set(mode, "g*", "<Plug>(asterisk-g*)", { desc = "Search word under cursor (partial)" })
+  vim.keymap.set(mode, "g#", "<Plug>(asterisk-g#)", { desc = "Search word under cursor backwards (partial)" })
+  vim.keymap.set(mode, "z*", "<Plug>(asterisk-z*)", { desc = "Search word under cursor (stay)" })
+  vim.keymap.set(mode, "gz*", "<Plug>(asterisk-gz*)", { desc = "Search word under cursor (partial, stay)" })
+  vim.keymap.set(mode, "z#", "<Plug>(asterisk-z#)", { desc = "Search word under cursor backwards (stay)" })
+  vim.keymap.set(mode, "gz#", "<Plug>(asterisk-gz#)", { desc = "Search word under cursor backwards (partial, stay)" })
 end
 vim.g["asterisk#keeppos"] = 1
