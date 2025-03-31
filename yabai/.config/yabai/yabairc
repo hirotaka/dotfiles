@@ -33,6 +33,7 @@ yabai -m rule --add app="^zoom.us$" manage=off
 yabai -m rule --add app="^Simulator.us$" manage=off
 yabai -m rule --add app="^Perplexity$" manage=off
 yabai -m rule --add app="^DeepL$" manage=off
+yabai -m rule --add app="^Raycast Settings$" manage=off
 
 # border
 borders active_color=0xffffc777 inactive_color=0xff545c7e width=5.0 &

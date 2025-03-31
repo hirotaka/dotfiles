@@ -1,5 +1,30 @@
 return {
   {
+    "nvimdev/lspsaga.nvim",
+    config = function()
+      require("lspsaga").setup({
+        lightbulb = {
+          enabled = false,
+        },
+      })
+    end,
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter", -- optional
+      "nvim-tree/nvim-web-devicons", -- optional
+    },
+    keys = {
+      { "<leader>r", "", desc = "+lspsaga", mode = { "n", "v" } },
+      { "<leader>rh", "<cmd>Lspsaga hover_doc<CR>", desc = "hover documentation", mode = "n" },
+      { "<leader>rf", "<cmd>Lspsaga finder<CR>", desc = "finder", mode = "n" },
+      { "<leader>rr", "<cmd>Lspsaga rename<CR>", desc = "rename", mode = "n" },
+      { "<leader>rc", "<cmd>Lspsaga code_action<CR>", desc = "code_action", mode = "n" },
+      { "<leader>rs", "<cmd>Lspsaga show_line_diagnostics<CR>", desc = "show_line_diagnostics", mode = "n" },
+      { "<leader>rp", "<cmd>Lspsaga peek_definition<CR>", desc = "peek_definition", mode = "n" },
+      { "<leader>r[", "<cmd>Lspsaga diagnostic_jump_prev<CR>", desc = "diagnostic_jump_prev", mode = "n" },
+      { "<leaaer>r]", "<cmd>Lspsaga diagnostic_jump_next<CR>", desc = "diagnostic_jump_next", mode = "n" },
+    },
+  },
+  {
     "haya14busa/vim-asterisk",
   },
   {
@@ -14,12 +39,6 @@ return {
   {
     "wsdjeg/vim-fetch",
     lazy = false,
-  },
-  {
-    "voxelprismatic/rabbit.nvim",
-    config = function()
-      require("rabbit").setup({})
-    end,
   },
   {
     "jannis-baum/vivify.vim",
@@ -142,6 +161,23 @@ return {
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     opts = {},
   },
+  -- { "dmmulroy/ts-error-translator.nvim" },
+  -- {
+  --   "OlegGulevskyy/better-ts-errors.nvim",
+  --   dependencies = { "MunifTanjim/nui.nvim" },
+  --   config = {
+  --     keymaps = {
+  --       toggle = "<leader>dd", -- default '<leader>dd'
+  --       go_to_definition = "<leader>dx", -- default '<leader>dx'
+  --     },
+  --   },
+  -- },
+  -- {
+  --   "voxelprismatic/rabbit.nvim",
+  --   config = function()
+  --     require("rabbit").setup({})
+  --   end,
+  -- },
   -- {
   --   "ibhagwan/fzf-lua",
   --   dependencies = { "nvim-tree/nvim-web-devicons" },

@@ -137,3 +137,13 @@ zoxide init fish | source
 
 # jj
 # jj util completion fish | source
+
+# pnpm
+set -gx PNPM_HOME /Users/hirotaka/Library/pnpm
+if not string match -q -- $PNPM_HOME $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
+
+# snipkit 
+set -xg SNIPKIT_HOME ~/.config/snipkit
