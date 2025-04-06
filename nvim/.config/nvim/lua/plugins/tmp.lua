@@ -1,5 +1,26 @@
 return {
   {
+    "nvim-treesitter/nvim-treesitter",
+    dependencies = {
+      "windwp/nvim-ts-autotag",
+    },
+    opts = {
+      autotag = {
+        -- Setup autotag using treesitter config.
+        enable = true,
+      },
+    },
+  },
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    opts = {},
+  },
+  {
+    "echasnovski/mini.pairs",
+    enabled = false,
+  },
+  {
     "nvimdev/lspsaga.nvim",
     config = function()
       require("lspsaga").setup({
