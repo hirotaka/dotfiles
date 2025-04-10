@@ -1,5 +1,52 @@
 return {
   {
+    "nvim-neotest/neotest",
+    optional = true,
+    dependencies = {
+      "olimorris/neotest-rspec",
+    },
+    opts = {
+      adapters = {
+        -- ["neotest-rspec"] = {
+        -- NOTE: By default neotest-rspec uses the system wide rspec gem instead of the one through bundler
+        -- rspec_cmd = function()
+        --   return vim.tbl_flatten({
+        --     "bundle",
+        --     "exec",
+        --     "rspec",
+        --   })
+        -- end,
+        -- },
+        -- ["neotest-rspec"] = {
+        --   rspec_cmd = function()
+        --     return vim.tbl_flatten({
+        --       "neotest-rspec.sh",
+        --     })
+        --   end,
+        -- },
+        ["neotest-rspec"] = {
+          rspec_cmd = function()
+            return vim.tbl_flatten({
+              "docker",
+              "compose",
+              "exec",
+              "web",
+              "bundle",
+              "exec",
+              "rspec",
+            })
+          end,
+          transform_spec_path = function(path)
+            local prefix = require("neotest-rspec").root(path)
+            return string.sub(path, string.len(prefix) + 2, -1)
+          end,
+          results_path = "rspec.output",
+          formatter = "json",
+        },
+      },
+    },
+  },
+  {
     "neovim/nvim-lspconfig",
     opts = function(_, opts)
       opts.inlay_hints = { enabled = false }

@@ -2,10 +2,14 @@
 return {
   name = "docker compose exec web",
   params = function()
+    local current_file = vim.fn.expand("%:p")
+    local root_dir = require("lazyvim.util").root()
+    local relative_path = root_dir and vim.fn.fnamemodify(current_file, ":~:." .. root_dir) or current_file
+
     return {
       dir = {
         type = "string",
-        default = "spec/requests/api/admin",
+        default = relative_path,
       },
     }
   end,
@@ -20,8 +24,10 @@ return {
         "bundle",
         "exec",
         "rspec",
+        "--require",
+        "./quickfix_formatter.rb",
         "--format",
-        "RSpec::Core::Formatters::FailureListFormatter",
+        "QuickfixFormatter",
         params.dir,
       },
       components = {
