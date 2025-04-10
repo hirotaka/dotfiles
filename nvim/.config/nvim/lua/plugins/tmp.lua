@@ -1,5 +1,24 @@
 return {
   {
+    "stevearc/overseer.nvim",
+    config = function()
+      require("overseer").setup({
+        templates = {
+          "builtin",
+          "user",
+          "rspec",
+        },
+      })
+    end,
+  },
+  {
+    "zbirenbaum/copilot.lua",
+    optional = true,
+    opts = function()
+      require("copilot.api").status = require("copilot.status")
+    end,
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
       "windwp/nvim-ts-autotag",
