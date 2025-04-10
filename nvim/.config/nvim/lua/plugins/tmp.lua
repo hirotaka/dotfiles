@@ -107,6 +107,9 @@ return {
       require("orgmode").setup({
         org_agenda_files = "~/Workspaces/github.com/hirotaka/org/roam/agenda/**/*",
         org_default_notes_file = "~/orgfiles/refile.org",
+        mappings = {
+          disable_all = true,
+        },
       })
 
       -- NOTE: If you are using nvim-treesitter with ~ensure_installed = "all"~ option
