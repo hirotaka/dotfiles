@@ -116,14 +116,17 @@ return {
       { "gov", "<cmd>OtherVSplit<cr>", desc = "Open other files in a vertical split" },
     },
   },
-  -- {
-  --   "neovim/nvim-lspconfig",
-  -- servers = {
-  --   ruby_lsp = {
-  --     mason = false,
-  --     cmd = { " /Users/hirotaka/.local/share/mise/shims/ruby-lsp" },
-  --   },
-  -- },
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        ruby_lsp = {
+          mason = false,
+          cmd = { vim.fn.expand("~/.local/share/mise/installs/ruby/3.2.3/bin/ruby-lsp") },
+        },
+      },
+    },
+  },
   -- opts = function(_, opts)
   -- local on_publish_diagnostics = vim.lsp.diagnostic.on_publish_diagnostics
   -- opts.servers.bashls = vim.tbl_deep_extend("force", opts.servers.bashls or {}, {
