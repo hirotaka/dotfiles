@@ -9,6 +9,13 @@ return {
         end,
         desc = "Zoxide",
       },
+      {
+        "<leader>fs",
+        function()
+          Snacks.picker.smart()
+        end,
+        desc = "Smart",
+      },
     },
     opts = {
       picker = {

@@ -57,6 +57,12 @@ layout {
           args "compose" "--profile" "swagger" "up"
         }
         pane {
+          name "swagger-admin"
+          start_suspended true
+          command "docker"
+          args "compose" "--profile" "swagger-admin" "up"
+        }
+        pane {
           name "swagger-salsa"
           start_suspended true
           command "docker"

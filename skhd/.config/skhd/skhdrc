@@ -12,8 +12,8 @@ yabai < h : yabai -m window --focus west; borders active_color=0xffff9e64
 yabai < l : yabai -m window --focus east; borders active_color=0xffff9e64
 
 # change focus between external displays (left and right)
-yabai < w: yabai -m display --focus west; borders active_color=0xffff9e64
-yabai < e: yabai -m display --focus east; borders active_color=0xffff9e64
+yabai < i: yabai -m display --focus west; borders active_color=0xffff9e64
+yabai < o: yabai -m display --focus east; borders active_color=0xffff9e64
 
 # rotate layout clockwise
 yabai < c : yabai -m space --rotate 270; skhd -k "ctrl - t"
@@ -35,7 +35,7 @@ yabai < m : yabai -m window --toggle zoom-fullscreen; skhd -k "ctrl - t"
 yabai < 0x18 : yabai -m space --balance; skhd -k "ctrl - t"
 
 # options: zoom-parent, zoom-fullscreen, native-fullscreen
-yabai < o : yabai -m window --toggle zoom-parent; skhd -k "ctrl - t"
+# yabai < o : yabai -m window --toggle zoom-parent; skhd -k "ctrl - t"
 
 # swap windows
 yabai < shift - j : yabai -m window --swap south; skhd -k "ctrl - t"
@@ -44,8 +44,8 @@ yabai < shift - h : yabai -m window --swap west; skhd -k "ctrl - t"
 yabai < shift - l : yabai -m window --swap east; skhd -k "ctrl - t"
 
 # move window to display left and right
-yabai < shift - w : yabai -m window --display west; yabai -m display --focus west; skhd -k "ctrl - t"
-yabai < shift - e : yabai -m window --display east; yabai -m display --focus east; skhd -k "ctrl - t"
+yabai < shift - i : yabai -m window --display west; yabai -m display --focus west; skhd -k "ctrl - t"
+yabai < shift - o : yabai -m window --display east; yabai -m display --focus east; skhd -k "ctrl - t"
 
 # move window to space #
 # yabai < shift - 1 : yabai -m window --space 1; skhd -k "ctrl - t"

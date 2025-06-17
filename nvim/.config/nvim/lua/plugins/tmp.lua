@@ -1,4 +1,8 @@
 return {
+  { "HawkinsT/pathfinder.nvim" },
+  {
+    "vuciv/golf",
+  },
   {
     "stevearc/overseer.nvim",
     config = function()
