@@ -1,5 +1,85 @@
 return {
   {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    main = "nvim-treesitter.configs",
+    opts = {
+      highlight = { enable = true },
+      -- textobjectsは別途設定
+    },
+  },
+  {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    event = { "BufReadPost", "BufNewFile" },
+    opts = {
+      select = {
+        enable = true,
+        lookahead = true,
+        keymaps = {
+          ["af"] = "@function.outer",
+          ["if"] = "@function.inner",
+        },
+      },
+    },
+  },
+  {
+    "nvim/nvim-lspconfig",
+    opts = function(_, opts)
+      -- biome.json が存在するかチェックするヘルパー関数
+      local function has_biome_config()
+        local biome_config = vim.fs.find("biome.json", {
+          upward = true,
+          path = vim.api.nvim_buf_get_name(0),
+          type = "file",
+        })
+        return #biome_config > 0
+      end
+
+      -- vtslsサーバーの設定を取得 (存在しない場合は空のテーブル)
+      local vtsls_opts = opts.servers.vtsls or {}
+
+      -- Biomeの設定ファイルがある場合のみ、vtslsの警告設定を上書き
+      if has_biome_config() then
+        -- LazyVimのユーティリティを使って設定を深くマージする
+        vtsls_opts = vim.tbl_deep_extend("force", vtsls_opts, {
+          settings = {
+            -- これらは内部的にtsserverに渡されるため、vtslsでも有効です
+            typescript = {
+              suggestionActions = {
+                enabled = false,
+              },
+            },
+            javascript = {
+              suggestionActions = {
+                enabled = false,
+              },
+            },
+          },
+        })
+
+        -- Biomeをフォーマッターとして使うため、vtslsのフォーマット機能を無効化
+        if vtsls_opts.on_attach then
+          local original_on_attach = vtsls_opts.on_attach
+          vtsls_opts.on_attach = function(client, bufnr)
+            client.server_capabilities.documentFormattingProvider = false
+            client.server_capabilities.documentRangeFormattingProvider = false
+            original_on_attach(client, bufnr)
+          end
+        else
+          vtsls_opts.on_attach = function(client, _)
+            client.server_capabilities.documentFormattingProvider = false
+            client.server_capabilities.documentRangeFormattingProvider = false
+          end
+        end
+      end
+
+      -- 更新した設定を返す
+      opts.servers.vtsls = vtsls_opts
+      return opts
+    end,
+  },
+  {
     "nvim-neotest/neotest",
     optional = true,
     dependencies = {
